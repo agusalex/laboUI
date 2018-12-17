@@ -43,9 +43,28 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube" index="1"]
+[node name="area" type="Area2D" parent="Test Tube" index="1"]
 
-position = Vector2( 1.11127, 0.136139 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="click_area" type="CollisionShape2D" parent="Test Tube/area" index="0"]
+
+position = Vector2( 1.11121, 0.136139 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube" index="2"]
+
+visible = false
+position = Vector2( 1.11124, 0.136139 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -127,5 +146,7 @@ position = Vector2( 1.14285, 4 )
 scale = Vector2( 1.018, 1.6 )
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
+
+[connection signal="input_event" from="Test Tube/area" to="Test Tube" method="_on_area_input_event"]
 
 

@@ -4,10 +4,14 @@ const UP = Vector2(0,-1)
 const GRAVITY = 8
 const JUMP_HEIGHT=400
 const SPEED = 100
-
+var is_inside = false
 
 
 #Keyboard Controls
+func _process(delta):
+	if is_inside:
+		self.set_global_position(get_global_mouse_position())
+		
 func _physics_process(delta): 
 	motion.y+=GRAVITY
 	if(Input.is_action_pressed("ui_right")):
@@ -26,3 +30,15 @@ func _physics_process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	
+func _ready():
+	set_process(true)
+	
+func _on_area_input_event( viewport, event, shape_idx ):
+	if event.is_action_pressed("left_click"):
+		is_inside = true
+		print("se ha clickeado dentro")
+	if event.is_action_released("left_click"):
+		is_inside = false
+		print("se ha soltado el click")
+
+
