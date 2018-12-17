@@ -1,9 +1,10 @@
 extends KinematicBody2D
+
 var motion = Vector2()
-const UP = Vector2(0,-1)
-const GRAVITY = 8
-const JUMP_HEIGHT=400
-const SPEED = 100
+var UP = Vector2(0,-1)
+var GRAVITY = 8
+var JUMP_HEIGHT=400
+var SPEED = 100
 var is_inside = false
 
 

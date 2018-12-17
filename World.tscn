@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://tubo azul.png" type="Texture" id=2]
@@ -21,10 +21,16 @@ light_mode = 0
 custom_solver_bias = 0.0
 extents = Vector2( 31.4286, 20 )
 
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 23.3681, 52.356 )
+
 [node name="World" type="Node" index="0"]
 
 [node name="Test Tube" type="KinematicBody2D" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( 447.693, 256.609 )
 rotation = 0.00233467
 input_pickable = false
@@ -45,6 +51,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="area" type="Area2D" parent="Test Tube" index="1"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -56,7 +63,6 @@ audio_bus_name = "Master"
 [node name="click_area" type="CollisionShape2D" parent="Test Tube/area" index="0"]
 
 position = Vector2( 1.11121, 0.136139 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -64,7 +70,6 @@ _sections_unfolded = [ "Transform" ]
 
 visible = false
 position = Vector2( 1.11124, 0.136139 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -83,9 +88,6 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Visibility" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="table" type="Sprite" parent="table" index="0"]
 
@@ -116,6 +118,18 @@ position = Vector2( 1.14285, 4 )
 scale = Vector2( 1.018, 1.6 )
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="table" index="4"]
+
+position = Vector2( -19.9516, 79.7887 )
+scale = Vector2( 0.125, 0.842105 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="table" index="5"]
+
+position = Vector2( 19.8799, 79.7887 )
+scale = Vector2( 0.125, 0.842105 )
+shape = SubResource( 4 )
 
 [node name="floor" type="StaticBody2D" parent="." index="2"]
 
