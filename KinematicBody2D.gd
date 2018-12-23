@@ -1,5 +1,4 @@
 extends KinematicBody2D
-
 var motion = Vector2()
 var UP = Vector2(0,-1)
 var GRAVITY = 8
@@ -26,8 +25,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JUMP_HEIGHT	
 	motion = move_and_slide(motion,UP)
-#	pass
-#
+	pass
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	
