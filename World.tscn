@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://TestTube.gd" type="Script" id=1]
 [ext_resource path="res://tubo azul.png" type="Texture" id=2]
 [ext_resource path="res://tubo rojo.png" type="Texture" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
@@ -11,16 +11,16 @@ custom_solver_bias = 0.0
 radius = 13.8449
 height = 54.8171
 
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.4286, 20 )
+
 [sub_resource type="CanvasItemMaterial" id=2]
 
 render_priority = 0
 blend_mode = 0
 light_mode = 0
-
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 31.4286, 20 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
@@ -31,25 +31,33 @@ extents = Vector2( 23.3681, 52.356 )
 
 [node name="Test Tube" type="KinematicBody2D" parent="." index="0"]
 
-position = Vector2( 447.693, 256.609 )
+position = Vector2( 446.223, 256.609 )
 rotation = 0.00233467
-input_pickable = false
+input_pickable = true
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Test Tube" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube" index="0"]
+
+visible = false
+position = Vector2( 1.11115, 0.136139 )
+rotation = 2.32831e-010
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Test Tube" index="1"]
 
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="area" type="Area2D" parent="Test Tube" index="1"]
+[node name="Area2D" type="Area2D" parent="Test Tube" index="2"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -59,43 +67,46 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="click_area" type="CollisionShape2D" parent="Test Tube/area" index="0"]
-
-position = Vector2( 1.11121, 0.136139 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube" index="2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Test Tube/Area2D" index="0"]
 
 visible = false
-position = Vector2( 1.11124, 0.136139 )
+position = Vector2( 1.11111, 0.136139 )
+rotation = 4.65661e-010
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Test Tube2" type="KinematicBody2D" parent="." index="1"]
 
-editor/display_folded = true
-position = Vector2( 574.946, 262.024 )
+position = Vector2( 523.958, 260.462 )
 rotation = 0.00233467
-input_pickable = false
+input_pickable = true
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Test Tube2" index="0"]
+[node name="Sprite2" type="Sprite" parent="Test Tube2" index="0"]
 
+rotation = 4.36557e-010
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="area" type="Area2D" parent="Test Tube2" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube2" index="1"]
 
-editor/display_folded = true
+visible = false
+position = Vector2( 1.11115, 0.136139 )
+rotation = 2.32831e-010
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="Test Tube2" index="2"]
+
+scale = Vector2( 1, 1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -104,20 +115,144 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="click_area" type="CollisionShape2D" parent="Test Tube2/area" index="0"]
-
-position = Vector2( 1.11121, 0.136139 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube2" index="2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Test Tube2/Area2D" index="0"]
 
 visible = false
-position = Vector2( 1.11124, 0.136139 )
+position = Vector2( 1.11111, 0.136139 )
+rotation = 4.65661e-010
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="table" type="StaticBody2D" parent="." index="2"]
+[node name="Enviroment" type="Node" parent="." index="2"]
+
+[node name="floor" type="StaticBody2D" parent="Enviroment" index="0"]
+
+position = Vector2( 493.113, 612.942 )
+scale = Vector2( 16.2813, 0.5 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor" index="0"]
+
+position = Vector2( 1.14285, 4 )
+scale = Vector2( 1.018, 1.6 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="table" type="Sprite" parent="Enviroment/floor" index="1"]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1.14285, 4 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="floor4" type="StaticBody2D" parent="Enviroment" index="1"]
+
+position = Vector2( 508.706, -17.0598 )
+scale = Vector2( 16.2813, 0.5 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="table" type="Sprite" parent="Enviroment/floor4" index="0"]
+
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1.14285, 4 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor4" index="1"]
+
+position = Vector2( 1.14285, 4 )
+scale = Vector2( 1.018, 1.6 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="floor2" type="StaticBody2D" parent="Enviroment" index="2"]
+
+position = Vector2( 1044.8, 296.348 )
+rotation = 1.5708
+scale = Vector2( 9.63113, 0.5 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="table" type="Sprite" parent="Enviroment/floor2" index="0"]
+
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1.14285, 4 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor2" index="1"]
+
+position = Vector2( 1.14285, 4 )
+scale = Vector2( 1.018, 1.6 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="floor3" type="StaticBody2D" parent="Enviroment" index="3"]
+
+position = Vector2( -16.9321, 292.593 )
+rotation = 1.5708
+scale = Vector2( 9.63113, 0.5 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="table" type="Sprite" parent="Enviroment/floor3" index="0"]
+
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1.14285, 4 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor3" index="1"]
+
+position = Vector2( 1.14285, 4 )
+scale = Vector2( 1.018, 1.6 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="table" type="StaticBody2D" parent="Enviroment" index="4"]
 
 modulate = Color( 0.945313, 0.727448, 0.727448, 1 )
 material = SubResource( 2 )
@@ -131,15 +266,18 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="table" type="Sprite" parent="table" index="0"]
+[node name="table" type="Sprite" parent="Enviroment/table" index="0"]
 
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.14285, 4 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="legs" type="Sprite" parent="table" index="1"]
+[node name="legs" type="Sprite" parent="Enviroment/table" index="1"]
 
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -20, 80 )
@@ -147,7 +285,7 @@ scale = Vector2( 0.0902724, 1.5 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="legs2" type="Sprite" parent="table" index="2"]
+[node name="legs2" type="Sprite" parent="Enviroment/table" index="2"]
 
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 20, 80 )
@@ -155,57 +293,34 @@ scale = Vector2( 0.0902724, 1.5 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="table" index="3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/table" index="3"]
 
+visible = false
 position = Vector2( 1.14285, 4 )
 scale = Vector2( 1.018, 1.6 )
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="table" index="4"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enviroment/table" index="4"]
 
+visible = false
 position = Vector2( -19.9516, 79.7887 )
 scale = Vector2( 0.125, 0.842105 )
 shape = SubResource( 4 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="table" index="5"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Enviroment/table" index="5"]
 
+visible = false
 position = Vector2( 19.8799, 79.7887 )
 scale = Vector2( 0.125, 0.842105 )
 shape = SubResource( 4 )
 
-[node name="floor" type="StaticBody2D" parent="." index="3"]
+[connection signal="input_event" from="Test Tube" to="Test Tube" method="_on_Test_Tube_input_event"]
 
-editor/display_folded = true
-position = Vector2( 499, 610 )
-scale = Vector2( 16.2813, 0.5 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
+[connection signal="body_entered" from="Test Tube/Area2D" to="Test Tube" method="_on_Area2D_body_entered"]
 
-[node name="table" type="Sprite" parent="floor" index="0"]
+[connection signal="input_event" from="Test Tube2" to="Test Tube2" method="_on_Test_Tube_input_event"]
 
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1.14285, 4 )
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Visibility" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" index="1"]
-
-position = Vector2( 1.14285, 4 )
-scale = Vector2( 1.018, 1.6 )
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
-
-[connection signal="input_event" from="Test Tube/area" to="Test Tube" method="_on_area_input_event"]
-
-[connection signal="input_event" from="Test Tube2/area" to="Test Tube2" method="_on_area_input_event"]
+[connection signal="body_entered" from="Test Tube2/Area2D" to="Test Tube2" method="_on_Area2D_body_entered"]
 
 
