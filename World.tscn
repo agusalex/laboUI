@@ -1,12 +1,22 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://TestTube.gd" type="Script" id=2]
-[ext_resource path="res://tubo azul.png" type="Texture" id=3]
-[ext_resource path="res://tubo rojo.png" type="Texture" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
-[ext_resource path="res://PopupDialog.gd" type="Script" id=6]
-[ext_resource path="res://ConfirmationDialog.gd" type="Script" id=7]
+[ext_resource path="res://tubo amarillo.png" type="Texture" id=3]
+[ext_resource path="res://tubo azul.png" type="Texture" id=4]
+[ext_resource path="res://tubo rojo.png" type="Texture" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://PopupDialog.gd" type="Script" id=7]
+[ext_resource path="res://ConfirmationDialog.gd" type="Script" id=8]
+[ext_resource path="res://Panel.gd" type="Script" id=9]
+[ext_resource path="res://PopupItems.gd" type="Script" id=10]
+[ext_resource path="res://instrumentos_icon.png" type="Texture" id=11]
+[ext_resource path="res://elements_icon.png" type="Texture" id=12]
+[ext_resource path="res://PanelElements.gd" type="Script" id=13]
+[ext_resource path="res://PopupElements.gd" type="Script" id=14]
+[ext_resource path="res://info_icon.png" type="Texture" id=15]
+[ext_resource path="res://InfoButton.gd" type="Script" id=16]
+[ext_resource path="res://PopupActivity.gd" type="Script" id=17]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -30,6 +40,19 @@ light_mode = 0
 custom_solver_bias = 0.0
 extents = Vector2( 23.3681, 52.356 )
 
+[sub_resource type="GDScript" id=5]
+
+script/source = "extends ItemList
+
+#Se puede borrar este script
+
+#Override
+func item_selected(index):
+	print(\"Entre\")
+	Global_ItemDatabase.show_data(Global_ItemDatabase.get_item(index))
+	.item_selected(index)
+"
+
 [node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
@@ -48,7 +71,8 @@ _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform"
 __meta__ = {
 "_edit_group_": true
 }
-text = "H2O"
+text = "H2SO4"
+changedTexture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube" index="0"]
 
@@ -61,12 +85,11 @@ _sections_unfolded = [ "Transform" ]
 [node name="Sprite" type="Sprite" parent="Test Tube" index="1"]
 
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D" type="Area2D" parent="Test Tube" index="2"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -97,13 +120,14 @@ _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform"
 __meta__ = {
 "_edit_group_": true
 }
-text = "H2SO4"
+text = "Fe(OH)2"
+changedTexture = ExtResource( 3 )
 
-[node name="Sprite2" type="Sprite" parent="Test Tube2" index="0"]
+[node name="Sprite" type="Sprite" parent="Test Tube2" index="0"]
 
 rotation = 4.36557e-010
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube2" index="1"]
@@ -165,7 +189,7 @@ _sections_unfolded = [ "Transform" ]
 
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.14285, 4 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="floor4" type="StaticBody2D" parent="Enviroment" index="1"]
@@ -190,7 +214,7 @@ __meta__ = {
 visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.14285, 4 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor4" index="1"]
@@ -224,7 +248,7 @@ __meta__ = {
 visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.14285, 4 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor2" index="1"]
@@ -258,7 +282,7 @@ __meta__ = {
 visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.14285, 4 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor3" index="1"]
@@ -291,7 +315,7 @@ __meta__ = {
 
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.14285, 4 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="legs" type="Sprite" parent="Enviroment/table" index="1"]
@@ -299,7 +323,7 @@ _sections_unfolded = [ "Visibility" ]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -20, 80 )
 scale = Vector2( 0.0902724, 1.5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="legs2" type="Sprite" parent="Enviroment/table" index="2"]
@@ -307,7 +331,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 20, 80 )
 scale = Vector2( 0.0902724, 1.5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/table" index="3"]
@@ -334,6 +358,8 @@ shape = SubResource( 4 )
 
 [node name="PopupDialog" type="PopupDialog" parent="." index="3"]
 
+editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -347,7 +373,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Margin" ]
 
 [node name="Label" type="Label" parent="PopupDialog" index="0"]
@@ -372,12 +398,16 @@ max_lines_visible = -1
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="." index="4"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 200.0
-margin_bottom = 70.0
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -35.0
+margin_right = 100.0
+margin_bottom = 35.0
 rect_min_size = Vector2( 200, 70 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -389,7 +419,7 @@ popup_exclusive = false
 window_title = "Por favor, Confirma..."
 resizable = false
 dialog_hide_on_ok = true
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Label2" type="Label" parent="ConfirmationDialog" index="3"]
 
@@ -397,8 +427,301 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 192.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ToolsPanel" type="Panel" parent="." index="5"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 97.0
+margin_top = 10.0
+margin_right = 937.0
+margin_bottom = 109.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 9 )
+_sections_unfolded = [ "Margin" ]
+
+[node name="ItemList" type="ItemList" parent="ToolsPanel" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -382.0
+margin_top = -30.5
+margin_right = 379.0
+margin_bottom = 29.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/vseparation = 30
+custom_constants/line_separation = 30
+custom_constants/hseparation = 30
+items = [  ]
+select_mode = 0
+allow_reselect = false
+icon_mode = 1
+fixed_icon_size = Vector2( 0, 0 )
+script = SubResource( 5 )
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="PopupItems" type="PopupDialog" parent="." index="6"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -141.0
+margin_top = -66.0
+margin_right = 144.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="PopupItems" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 13.0
+margin_top = 12.0
+margin_right = 270.0
+margin_bottom = 117.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ToolsButton" type="TextureButton" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 25.0
+margin_top = 33.0
+margin_right = 65.0
+margin_bottom = 73.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 11 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="ElementsButton" type="TextureButton" parent="." index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 950.0
+margin_top = 27.0
+margin_right = 1078.0
+margin_bottom = 155.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 12 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="PanelElements" type="Panel" parent="." index="9"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 96.0
+margin_top = 11.0
+margin_right = -87.0
+margin_bottom = -484.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ElementsList" type="ItemList" parent="PanelElements" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -402.5
+margin_top = -34.5
+margin_right = 402.5
+margin_bottom = 34.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+items = [  ]
+select_mode = 0
+allow_reselect = false
+icon_mode = 1
+fixed_icon_size = Vector2( 0, 0 )
+
+[node name="PopupElements" type="PopupDialog" parent="." index="10"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 233.0
+margin_bottom = 118.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="PopupElements" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 15.0
+margin_top = 12.0
+margin_right = 205.0
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="InfoButton" type="TextureButton" parent="." index="11"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = 540.0
+margin_right = 62.0
+margin_bottom = 588.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 15 )
+script = ExtResource( 16 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="PopupActivity" type="PopupDialog" parent="InfoButton" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_top = -354.0
+margin_right = 197.0
+margin_bottom = -65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 17 )
+
+[node name="Label" type="Label" parent="InfoButton/PopupActivity" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 11.0
+margin_top = 9.0
+margin_right = 51.0
+margin_bottom = 23.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -413,7 +736,11 @@ max_lines_visible = -1
 
 [connection signal="input_event" from="Test Tube" to="Test Tube" method="_on_Test_Tube_input_event"]
 
+[connection signal="mouse_entered" from="Test Tube" to="Test Tube" method="mouse_entered"]
+
 [connection signal="mouse_exited" from="Test Tube" to="." method="hide_description"]
+
+[connection signal="mouse_exited" from="Test Tube" to="Test Tube" method="mouse_exited"]
 
 [connection signal="body_entered" from="Test Tube/Area2D" to="Test Tube" method="_on_Area2D_body_entered"]
 
@@ -421,8 +748,22 @@ max_lines_visible = -1
 
 [connection signal="input_event" from="Test Tube2" to="Test Tube2" method="_on_Test_Tube_input_event"]
 
+[connection signal="mouse_entered" from="Test Tube2" to="Test Tube2" method="mouse_entered"]
+
 [connection signal="mouse_exited" from="Test Tube2" to="." method="hide_description"]
 
+[connection signal="mouse_exited" from="Test Tube2" to="Test Tube2" method="mouse_exited"]
+
 [connection signal="body_entered" from="Test Tube2/Area2D" to="Test Tube2" method="_on_Area2D_body_entered"]
+
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
+
+[connection signal="item_selected" from="ToolsPanel/ItemList" to="." method="_on_ItemList_item_selected"]
+
+[connection signal="pressed" from="ToolsButton" to="." method="_on_ToolsButton_pressed"]
+
+[connection signal="pressed" from="ElementsButton" to="." method="_on_ElementsButton_pressed"]
+
+[connection signal="item_selected" from="PanelElements/ElementsList" to="." method="_on_ElementsList_item_selected"]
 
 

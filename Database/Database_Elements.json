@@ -1,0 +1,46 @@
+{
+  "1": {
+    "name": "Boron",
+    "symbol": "B",
+    "icon": "",
+    "atomic_number": "5",
+    "atomic_mass": 10.811,
+    "density": 2.460
+  },
+
+  "2": {
+    "name": "Carbon",
+    "symbol": "C",
+    "icon": "",
+    "atomic_number": "6",
+    "atomic_mass": 12.0107,
+    "density": 2.267
+  },
+
+  "3": {
+    "name": "Bromine",
+    "symbol": "Br",
+    "icon": "",
+    "atomic_number": "35",
+    "atomic_mass": 79.904,
+    "density": 3.119
+  },
+
+  "4": {
+    "name": "Neodymium",
+    "symbol": "Nd",
+    "icon": "",
+    "atomic_number": "60",
+    "atomic_mass": 144.242,
+    "density": 6.8
+  },
+
+  "5": {
+    "name": "Astatine",
+    "symbol": "At",
+    "icon": "",
+    "atomic_number": "85",
+    "atomic_mass": 210,
+    "density": 6.35
+  }
+}

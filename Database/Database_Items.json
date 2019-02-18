@@ -1,0 +1,31 @@
+{
+  "1": {
+    "name": "Item 1",
+    "icon": "",
+    "type": "consumable",
+    "weight": 0.1,
+    "stackable": true,
+    "description": "This is a consumable item.",
+    "sell_price": 7
+  },
+
+  "2": {
+    "name": "Item 2",
+    "icon": "",
+    "type": "equipment",
+    "weight": 10.5,
+    "stackable": true,
+    "description": "This is an equipment item.",
+    "sell_price": 23
+  },
+
+  "3": {
+    "name": "Item 3",
+    "icon": "",
+    "type": "misc",
+    "weight": 0.15,
+    "stackable": true,
+    "description": "This is a miscellaneous item.",
+    "sell_price": 6
+  }
+}

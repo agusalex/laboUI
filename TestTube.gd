@@ -10,6 +10,7 @@ export (String) var text
 var collide
 signal hit
 
+export (Texture) var changedTexture = preload("res://tubo amarillo.png")
 
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed
@@ -27,6 +28,8 @@ func _physics_process(delta):
 func _on_Test_Tube_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("left_click"):
 		is_inside = true
+#		$Sprite.texture = changedTexture
+#		$Sprite.texture = load("res://tubo amarillo.png")
 		print("se ha clickeado dentro")
 	if event.is_action_released("left_click"):
 		is_inside = false
@@ -48,3 +51,19 @@ func _on_Area2D_body_entered(body):
 		collide = false
 	
 	#for body in $Area2D.get_overlapping_bodies():
+		
+func change_texture():
+	$Sprite.texture = load("res://tubo amarillo.png")
+
+
+func mouse_entered():
+	get_parent().actualTube = self
+	get_parent().update_tubes()
+
+func mouse_exited():
+	get_parent().staticTube = self
+	get_parent().update_tubes()
+	pass
+	
+func delete():
+	queue_free()
