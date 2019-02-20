@@ -37,11 +37,16 @@ func hide_description():
 	$PopupDialog.hide_message()
 	
 func show_confirm_dialog():
-	$ConfirmationDialog.show_messge("¿Seguro que desea combinar estos dos ingredientes?")
-	$ConfirmationDialog.get_ok()
+#	$ConfirmationDialog.show_messge("¿Seguro que desea combinar estos dos ingredientes?")
+#	$ConfirmationDialog.get_ok()
+
+	$ConfirmationDialog2.show_messge("Cantidad de H2SO4:", "Cantidad de Fe(OH)2:")
+	$ConfirmationDialog2.get_ok()
 	
 func hide_confirm_dialog():
-	$ConfirmationDialog.hide_message()
+#	$ConfirmationDialog.hide_message()
+
+	$ConfirmationDialog2.hide_message()
 
 func _on_ItemList_item_selected(index):
 #	Global_ItemDatabase.show_data(Global_ItemDatabase.get_item(index+1))
@@ -86,3 +91,16 @@ func _on_ConfirmationDialog_confirmed():
 #	actualTube.get_node("Sprite").texture = load("res://tubo amarillo.png")
 #	actualTube/Sprite.texture = load("res://tubo amarillo.png")
 #	actualTube/Sprite.texture = load("res://tubo amarillo.png")
+
+
+func _on_ConfirmationDialog2_confirmed():
+	var fst_ipt = int($ConfirmationDialog2.get_first_input())
+	var snd_ipt = int($ConfirmationDialog2.get_second_input())
+	
+	if fst_ipt == 1 && snd_ipt == 1:
+		staticTube.change_texture()
+		staticTube.text = "FeSO4"
+		actualTube.delete()
+	else:
+		$PopupDialogWrongAnswer.show_message("La combinación ingresada no es correcta.")
+	

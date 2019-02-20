@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://TestTube.gd" type="Script" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://info_icon.png" type="Texture" id=15]
 [ext_resource path="res://InfoButton.gd" type="Script" id=16]
 [ext_resource path="res://PopupActivity.gd" type="Script" id=17]
+[ext_resource path="res://ConfirmationDialog2.gd" type="Script" id=18]
+[ext_resource path="res://PopupDialogWrong.gd" type="Script" id=19]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -732,6 +734,185 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="ConfirmationDialog2" type="ConfirmationDialog" parent="." index="12"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 303.0
+margin_top = 70.0
+margin_right = 682.0
+margin_bottom = 213.0
+rect_min_size = Vector2( 200, 70 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Por favor, Confirma..."
+resizable = false
+dialog_hide_on_ok = true
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="ConfirmationDialog2" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 371.0
+margin_bottom = 107.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Label2" type="Label" parent="ConfirmationDialog2/Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 20.0
+margin_right = 130.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Cantidad de H2SO4:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
+
+[node name="Label3" type="Label" parent="ConfirmationDialog2/Panel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = 7.0
+margin_top = 2.0
+margin_right = 138.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Cantidad de Fe(OH)2:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
+
+[node name="LineEdit" type="LineEdit" parent="ConfirmationDialog2/Panel" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 203.0
+margin_top = 12.0
+margin_right = 261.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Margin" ]
+
+[node name="LineEdit2" type="LineEdit" parent="ConfirmationDialog2/Panel" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 204.0
+margin_top = 49.0
+margin_right = 263.0
+margin_bottom = 73.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Margin" ]
+
+[node name="PopupDialogWrongAnswer" type="PopupDialog" parent="." index="13"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.0
+margin_top = -166.0
+margin_right = 127.0
+margin_bottom = -102.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 19 )
+
+[node name="Label" type="Label" parent="PopupDialogWrongAnswer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.04
+anchor_bottom = 0.5
+margin_left = 15.0
+margin_top = -7.0
+margin_right = 27.6
+margin_bottom = 7.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
 [connection signal="hit" from="Test Tube" to="." method="show_description"]
 
 [connection signal="input_event" from="Test Tube" to="Test Tube" method="_on_Test_Tube_input_event"]
@@ -765,5 +946,7 @@ max_lines_visible = -1
 [connection signal="pressed" from="ElementsButton" to="." method="_on_ElementsButton_pressed"]
 
 [connection signal="item_selected" from="PanelElements/ElementsList" to="." method="_on_ElementsList_item_selected"]
+
+[connection signal="confirmed" from="ConfirmationDialog2" to="." method="_on_ConfirmationDialog2_confirmed"]
 
 
