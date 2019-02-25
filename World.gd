@@ -40,8 +40,12 @@ func show_confirm_dialog():
 #	$ConfirmationDialog.show_messge("¿Seguro que desea combinar estos dos ingredientes?")
 #	$ConfirmationDialog.get_ok()
 
+	actualTube.position.x = staticTube.position.x + 70
+	actualTube.position.y = staticTube.position.y - 70
+
 	$ConfirmationDialog2.show_messge("Cantidad de H2SO4:", "Cantidad de Fe(OH)2:")
 	$ConfirmationDialog2.get_ok()
+	get_tree().paused = true
 	
 func hide_confirm_dialog():
 #	$ConfirmationDialog.hide_message()
@@ -66,9 +70,11 @@ func _on_ToolsButton_pressed():
 func _on_ElementsButton_pressed():
 	elements_bar_is_visible = !elements_bar_is_visible
 	if elements_bar_is_visible:
-		$PanelElements.show()
+#		$PanelElements.show()
+		$PanelElements2.show()
 	else:
-		$PanelElements.hide()
+#		$PanelElements.hide()
+		$PanelElements2.hide()
 
 
 func _on_ElementsList_item_selected(index):
@@ -94,6 +100,9 @@ func _on_ConfirmationDialog_confirmed():
 
 
 func _on_ConfirmationDialog2_confirmed():
+	
+	get_tree().paused = false
+	
 	var fst_ipt = int($ConfirmationDialog2.get_first_input())
 	var snd_ipt = int($ConfirmationDialog2.get_second_input())
 	
@@ -104,3 +113,12 @@ func _on_ConfirmationDialog2_confirmed():
 	else:
 		$PopupDialogWrongAnswer.show_message("La combinación ingresada no es correcta.")
 	
+	
+
+func _on_ConfirmationDialog2_hide():
+	get_tree().paused = false
+#	$"Test Tube".interaction = false
+#	$"Test Tube2".interaction = false
+	$"Test Tube".reset(446, 256)
+	$"Test Tube2".reset(523, 260)
+	actualTube.rotate(1.5708)
