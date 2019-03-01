@@ -19,6 +19,9 @@ config/icon="res://icon.png"
 Global_DataParser="*res://Global_DataParser.gd"
 Global_ItemDatabase="*res://Global_ItemDatabase.gd"
 Global_ElementDatabase="*res://Global_ElementDatabase.gd"
+Global_SubstanceDatabase="*res://Global_SubstanceDatabase.gd"
+Aggregation_States="*res://Aggregation_States.gd"
+Measurement_Units_Parser="*res://Measurement_Units_Parser.gd"
 
 [display]
 

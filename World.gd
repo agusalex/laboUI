@@ -9,10 +9,24 @@ onready var staticTube
 var tools_bar_is_visible = false
 var elements_bar_is_visible = false
 
+var elementos
+var selectedSubstance
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	pass
+	
+	elementos = Global_SubstanceDatabase.get_all()
+	
+	var position_x = 400
+	var position_y = 300
+	
+	for item in elementos:
+		item.position.x = position_x
+		item.position.y = position_y
+		position_x += 100
+		item.connect("selected", self, "_on_Substancia2_selected")
+		add_child(item)
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -122,3 +136,50 @@ func _on_ConfirmationDialog2_hide():
 	$"Test Tube".reset(446, 256)
 	$"Test Tube2".reset(523, 260)
 	actualTube.rotate(1.5708)
+
+
+func _on_Substancia2_selected(instance):
+	selectedSubstance = instance
+	print("Selected Substance: " + str(selectedSubstance.get_instance_id()))
+
+func _on_Recipiente2_hit():
+	#popup
+#	$PourSubstanceDialog.show_message("Substancia: H2O")
+#	$PourSubstanceDialog/Panel/Label.text = "Ingrese la cantidad deseada:"
+#	$PourSubstanceDialog/Panel/Label2.text = "ml"
+
+#	$PourSubstanceDialog/Panel/VBoxContainer/RichTextLabel.text = "Substancia: " + selectedSubstance.nombre
+	$PourSubstanceDialog/Panel/VBoxContainer/RichTextLabel.text = "Substancia: "
+	$PourSubstanceDialog/Panel/VBoxContainer/Label.text = "Substancia: " + selectedSubstance.nombre
+	$PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer/Label.text = "Ingrese la cantidad deseada:"
+	$PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer/Label2.text = Measurement_Units_Parser.get_measurement_unit(selectedSubstance.aggregation_state)
+	
+	$PourSubstanceDialog.popup()
+	
+	get_tree().paused = true
+	
+	#obtener cantidad ingresada
+	
+	
+	
+	#llenar el recipiente de acuerdo a la cantidad ingresada
+	#recolocar la substancia
+	pass
+
+
+func _on_PourSubstanceDialog_confirmed():
+	
+	var input = float($PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer/LineEdit.text)
+	
+	$Recipiente2.fill(input)
+	
+	get_tree().paused = false
+
+func _on_PourSubstanceDialog_hide():
+	get_tree().paused = false
+
+
+func _on_Recipiente2_overwhelmed():
+	$OverwhelmedRecipientePopup/Label.text = "Se ha superado la capacidad máxima del recipiente. Por favor, vuelva a intentarlo."
+	$OverwhelmedRecipientePopup/Label.set_autowrap(true)
+	$OverwhelmedRecipientePopup.popup()
