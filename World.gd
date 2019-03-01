@@ -23,17 +23,11 @@ func _ready():
 		position_x += 100
 		item.connect("selected", self, "_on_Substancia2_selected")
 		add_child(item)
-		
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-	
-func _draw():
-	var texture = elementos[0].getImage()
-	var texture2 = ResourceLoader.load("res://assets/tools/tube.png")
-	draw_texture(texture2, Vector2(100, 100), elementos[0].color)
 
 func update_tubes():
 	
