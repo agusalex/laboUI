@@ -105,6 +105,7 @@ max_redirects = 8
 
 [node name="Username_not_Found" type="AcceptDialog" parent="LoginPanel" index="4"]
 
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

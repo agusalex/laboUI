@@ -58,7 +58,7 @@ func item_selected(index):
 	.item_selected(index)
 "
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -1258,6 +1258,7 @@ max_lines_visible = -1
 
 [node name="OverwhelmedRecipientePopup" type="PopupDialog" parent="." index="17"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
