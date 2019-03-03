@@ -6,8 +6,7 @@ var authenticated = false
 func _ready():
 	pass
 
-
-func _on_HTTPPost_request_completed(result, response_code, headers, body):
+func _on_HTTPLoginRequest_request_completed(result, response_code, headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
 	if(response_code==200):
 		print("success!")
@@ -18,14 +17,12 @@ func _on_HTTPPost_request_completed(result, response_code, headers, body):
 		authenticated = false
 		$Username_not_Found.popup()
 
-
-
 func make_post_request(url, data_to_send, use_ssl):
     # Convert data to json string:
     var query = JSON.print(data_to_send)
     # Add 'Content-Type' header:
     var headers = ["Content-Type: application/json"]
-    $HTTPPost.request(url, headers, use_ssl, HTTPClient.METHOD_POST, query)
+    $HTTPLoginRequest.request(url, headers, use_ssl, HTTPClient.METHOD_POST, query)
 
 
 func login():
@@ -64,4 +61,6 @@ func _on_LoginButton_pressed():
 	#		$Username_not_Found.popup()
 			
 	
+
+
 

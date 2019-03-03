@@ -96,7 +96,7 @@ text = "Login"
 flat = false
 align = 1
 
-[node name="HTTPRequest" type="HTTPRequest" parent="LoginPanel" index="3"]
+[node name="HTTPLoginRequest" type="HTTPRequest" parent="LoginPanel" index="3"]
 
 download_file = ""
 use_threads = false
@@ -129,6 +129,6 @@ _sections_unfolded = [ "Dialog", "Popup" ]
 
 [connection signal="pressed" from="LoginPanel/LoginButton" to="LoginPanel" method="_on_LoginButton_pressed"]
 
-[connection signal="request_completed" from="LoginPanel/HTTPRequest" to="LoginPanel" method="_on_HTTPRequest_request_completed"]
+[connection signal="request_completed" from="LoginPanel/HTTPLoginRequest" to="LoginPanel" method="_on_HTTPLoginRequest_request_completed"]
 
 
