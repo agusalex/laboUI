@@ -10,7 +10,7 @@ func _on_HTTPLoginRequest_request_completed(result, response_code, headers, body
 	var json = JSON.parse(body.get_string_from_utf8())
 	if(response_code==200):
 		print("success!")
-		token = JSON.parse(body.get_string_from_utf8()).result.token
+		token = JSON.parse(body.get_string_from_utf8()).result.key
 		authenticated = true
 		get_tree().change_scene("res://World.tscn")
 	else:
@@ -28,7 +28,7 @@ func make_post_request(url, data_to_send, use_ssl):
 func login():
 	if(!authenticated):
 		var dic = {"username": username, "password": password} 
-		make_post_request("http://django2-rest-api.herokuapp.com/get-token/",dic,false)
+		make_post_request("http://laboapi.herokuapp.com/api/rest-auth/login/",dic,false)
 	
 
 
