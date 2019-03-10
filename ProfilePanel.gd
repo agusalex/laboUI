@@ -19,8 +19,8 @@ func _ready():
 	
 	if(Token.isAuthenticated()):
 		makeGetRequest()
-	#else:
-	#	get_tree().change_scene("res://Login.tscn")
+	else:
+		get_tree().change_scene("res://Login.tscn")
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://World.tscn")
@@ -48,9 +48,7 @@ func _on_SaveButton_pressed():
 				
 		$InvalidFields.dialog_text = popupMessage
 		$InvalidFields.popup()
-		#$InvalidUsename.dialog_text=
-	#if($User.text != ""):
-	#	register($User.text,$Password.text)
+
 
 func update(name,lastname):
 		var credentialsDict = {"first_name":name,"last_name":lastname,"username":username} 		#dictionary with credentials "first_name":name,"last_name":lastname
@@ -60,12 +58,14 @@ func update(name,lastname):
 func makeGetRequest():
 	$SaveButton.disabled = true
 	$BackButton.disabled = true
+	$EndButton.disabled = true
 	var headers = ["Content-Type: application/json","Authorization: Token "+Token.getToken()]   # Add 'Content-Type' header:
 	$HTTPProfileGet.request(URL, headers,false, HTTPClient.METHOD_GET)
 		
 func makeUpdateRequest(data_to_send):
 	$SaveButton.disabled = true
 	$BackButton.disabled = true
+	$EndButton.disabled = true
 	var query = JSON.print(data_to_send)# Convert data to json string:
 	var headers = ["Content-Type: application/json","Authorization: Token "+Token.getToken()]   # Add 'Content-Type' header:
 	$HTTPProfileUpdate.request(URL, headers,false, HTTPClient.METHOD_PUT, query)
@@ -91,7 +91,8 @@ func _on_HTTPProfileGet_request_completed(result, response_code, headers, body):
 		get_tree().change_scene("res://Login.tscn")
 	else:
 		$InternetConection.popup()
-		
+	
+	$EndButton.disabled = false	
 	$SaveButton.disabled = false
 	$BackButton.disabled = false
 
@@ -118,6 +119,7 @@ func _on_HTTPProfileUpdate_request_completed(result, response_code, headers, bod
 		
 	$SaveButton.disabled = false
 	$BackButton.disabled = false
+	$EndButton.disabled = false	
 
 
 

@@ -27,6 +27,7 @@ func _on_RegisterButton_pressed():
 
 	if(validEmail&&validPassword):
 		register($Email.text,$Password.text)
+		$BackButton.disabled = true
 		$RegisterButton.disabled = true
 	else:
 		var verificationArray = [validEmail,validPassword]
@@ -62,7 +63,9 @@ func onHTTPRegistrationRequestCompleted(result, response_code, headers, body):
 		get_tree().change_scene("res://Profile.tscn")
 	elif(response_code==400):
 		$RegisterButton.disabled = false
+		$BackButton.disabled = false
 		$EmailAlreadyInUse.popup()
 	else:
 		$RegisterButton.disabled = false
-		$InternetConection.popup()
+		$BackButton.disabled = false
+		$InternetConnection.popup()

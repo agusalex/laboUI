@@ -2,7 +2,7 @@
 
 [ext_resource path="res://RegistrationPanel.gd" type="Script" id=1]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 [node name="RegistrationPanel" type="Panel" parent="." index="0"]
 
@@ -208,7 +208,31 @@ dialog_text = "\"El correo electronico ya se encuentra en uso\""
 dialog_hide_on_ok = true
 _sections_unfolded = [ "Dialog", "Grow Direction", "Popup", "Visibility" ]
 
-[node name="InvalidFields" type="AcceptDialog" parent="RegistrationPanel" index="8"]
+[node name="InternetConnection" type="AcceptDialog" parent="RegistrationPanel" index="8"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -122.0
+margin_top = -29.0
+margin_right = 121.0
+margin_bottom = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Alert!"
+resizable = false
+dialog_text = "Ha ocurrido un error inesperado, revise su conexion a internet"
+dialog_hide_on_ok = true
+_sections_unfolded = [ "Dialog", "Grow Direction", "Popup", "Visibility" ]
+
+[node name="InvalidFields" type="AcceptDialog" parent="RegistrationPanel" index="9"]
 
 visible = false
 anchor_left = 0.5
@@ -231,7 +255,7 @@ resizable = false
 dialog_hide_on_ok = true
 _sections_unfolded = [ "Dialog", "Grow Direction", "Popup", "Visibility" ]
 
-[node name="Label" type="Label" parent="RegistrationPanel" index="9"]
+[node name="Label" type="Label" parent="RegistrationPanel" index="10"]
 
 anchor_left = 0.5
 anchor_top = 0.5
