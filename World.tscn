@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://TestTube.gd" type="Script" id=2]
@@ -16,11 +16,12 @@
 [ext_resource path="res://PopupElements.gd" type="Script" id=14]
 [ext_resource path="res://InfoButton.gd" type="Script" id=15]
 [ext_resource path="res://PopupActivity.gd" type="Script" id=16]
-[ext_resource path="res://ConfirmationDialog2.gd" type="Script" id=17]
-[ext_resource path="res://PopupDialogWrong.gd" type="Script" id=18]
-[ext_resource path="res://PanelElements2.gd" type="Script" id=19]
-[ext_resource path="res://Recipiente2.tscn" type="PackedScene" id=20]
-[ext_resource path="res://PourSubstanceDialog.gd" type="Script" id=21]
+[ext_resource path="res://ProfileButton.gd" type="Script" id=17]
+[ext_resource path="res://ConfirmationDialog2.gd" type="Script" id=18]
+[ext_resource path="res://PopupDialogWrong.gd" type="Script" id=19]
+[ext_resource path="res://PanelElements2.gd" type="Script" id=20]
+[ext_resource path="res://Recipiente2.tscn" type="PackedScene" id=21]
+[ext_resource path="res://PourSubstanceDialog.gd" type="Script" id=22]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -170,6 +171,8 @@ shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Enviroment" type="Node" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="floor" type="StaticBody2D" parent="Enviroment" index="0"]
 
@@ -740,7 +743,7 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 texture_normal = ExtResource( 6 )
-script = ExtResource( 15 )
+script = ExtResource( 17 )
 _sections_unfolded = [ "Anchor", "Margin", "Material" ]
 
 [node name="PopupActivity" type="PopupDialog" parent="Profile" index="0"]
@@ -807,7 +810,7 @@ popup_exclusive = true
 window_title = "Por favor, Confirma..."
 resizable = false
 dialog_hide_on_ok = true
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 _sections_unfolded = [ "Pause" ]
 __meta__ = {
 "_edit_group_": true
@@ -963,7 +966,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 18 )
+script = ExtResource( 19 )
 
 [node name="Label" type="Label" parent="PopupDialogWrongAnswer" index="0"]
 
@@ -1003,7 +1006,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 19 )
+script = ExtResource( 20 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Button" type="Button" parent="PanelElements2" index="0"]
@@ -1128,7 +1131,7 @@ allow_reselect = false
 icon_mode = 1
 fixed_icon_size = Vector2( 0, 0 )
 
-[node name="Recipiente2" parent="." index="16" instance=ExtResource( 20 )]
+[node name="Recipiente2" parent="." index="16" instance=ExtResource( 21 )]
 
 position = Vector2( 525.576, 275.742 )
 scale = Vector2( 0.3, 0.3 )
@@ -1158,7 +1161,7 @@ popup_exclusive = true
 window_title = "Por favor, Confirma..."
 resizable = false
 dialog_hide_on_ok = true
-script = ExtResource( 21 )
+script = ExtResource( 22 )
 _sections_unfolded = [ "Pause", "Popup" ]
 __meta__ = {
 "_edit_group_": true
@@ -1358,9 +1361,9 @@ max_lines_visible = -1
 
 [connection signal="mouse_entered" from="Test Tube2" to="Test Tube2" method="mouse_entered"]
 
-[connection signal="mouse_exited" from="Test Tube2" to="Test Tube2" method="mouse_exited"]
-
 [connection signal="mouse_exited" from="Test Tube2" to="." method="hide_description"]
+
+[connection signal="mouse_exited" from="Test Tube2" to="Test Tube2" method="mouse_exited"]
 
 [connection signal="body_entered" from="Test Tube2/Area2D" to="Test Tube2" method="_on_Area2D_body_entered"]
 

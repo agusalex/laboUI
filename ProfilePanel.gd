@@ -19,8 +19,8 @@ func _ready():
 	
 	if(Token.isAuthenticated()):
 		makeGetRequest()
-	else:
-		get_tree().change_scene("res://Login.tscn")
+	#else:
+	#	get_tree().change_scene("res://Login.tscn")
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://World.tscn")
