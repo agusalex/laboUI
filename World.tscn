@@ -14,14 +14,13 @@
 [ext_resource path="res://elements_icon.png" type="Texture" id=12]
 [ext_resource path="res://PanelElements.gd" type="Script" id=13]
 [ext_resource path="res://PopupElements.gd" type="Script" id=14]
-[ext_resource path="res://info_icon.png" type="Texture" id=15]
-[ext_resource path="res://InfoButton.gd" type="Script" id=16]
-[ext_resource path="res://PopupActivity.gd" type="Script" id=17]
-[ext_resource path="res://ConfirmationDialog2.gd" type="Script" id=18]
-[ext_resource path="res://PopupDialogWrong.gd" type="Script" id=19]
-[ext_resource path="res://PanelElements2.gd" type="Script" id=20]
-[ext_resource path="res://Recipiente2.tscn" type="PackedScene" id=21]
-[ext_resource path="res://PourSubstanceDialog.gd" type="Script" id=22]
+[ext_resource path="res://InfoButton.gd" type="Script" id=15]
+[ext_resource path="res://PopupActivity.gd" type="Script" id=16]
+[ext_resource path="res://ConfirmationDialog2.gd" type="Script" id=17]
+[ext_resource path="res://PopupDialogWrong.gd" type="Script" id=18]
+[ext_resource path="res://PanelElements2.gd" type="Script" id=19]
+[ext_resource path="res://Recipiente2.tscn" type="PackedScene" id=20]
+[ext_resource path="res://PourSubstanceDialog.gd" type="Script" id=21]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -58,6 +57,12 @@ func item_selected(index):
 	.item_selected(index)
 "
 
+[sub_resource type="StreamTexture" id=6]
+
+flags = 4
+load_path = "res://.import/info_icon.png-1e3c34d3b4831e1b03c76ead1f33fd25.stex"
+_sections_unfolded = [ "Resource" ]
+
 [node name="World" type="Node"]
 
 script = ExtResource( 1 )
@@ -84,7 +89,7 @@ changedTexture = ExtResource( 3 )
 
 visible = false
 position = Vector2( 1.11115, 0.136139 )
-rotation = 2.32831e-010
+rotation = 2.32831e-10
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -108,7 +113,7 @@ audio_bus_name = "Master"
 
 visible = false
 position = Vector2( 1.11111, 0.136139 )
-rotation = 4.65661e-010
+rotation = 4.65661e-10
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -132,7 +137,7 @@ changedTexture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Test Tube2" index="0"]
 
-rotation = 4.36557e-010
+rotation = 4.36557e-10
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
@@ -141,7 +146,7 @@ _sections_unfolded = [ "Transform" ]
 
 visible = false
 position = Vector2( 1.11115, 0.136139 )
-rotation = 2.32831e-010
+rotation = 2.32831e-10
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -160,13 +165,11 @@ audio_bus_name = "Master"
 
 visible = false
 position = Vector2( 1.11111, 0.136139 )
-rotation = 4.65661e-010
+rotation = 4.65661e-10
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Enviroment" type="Node" parent="." index="2"]
-
-editor/display_folded = true
 
 [node name="floor" type="StaticBody2D" parent="Enviroment" index="0"]
 
@@ -301,7 +304,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="table" type="StaticBody2D" parent="Enviroment" index="4"]
 
-editor/display_folded = true
 modulate = Color( 0.945313, 0.727448, 0.727448, 1 )
 material = SubResource( 3 )
 position = Vector2( 480, 450 )
@@ -672,9 +674,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 15 )
-script = ExtResource( 16 )
-_sections_unfolded = [ "Textures" ]
+texture_normal = SubResource( 6 )
+script = ExtResource( 15 )
+_sections_unfolded = [ "Anchor", "Margin", "Textures" ]
 
 [node name="PopupActivity" type="PopupDialog" parent="InfoButton" index="0"]
 
@@ -693,7 +695,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 17 )
+script = ExtResource( 16 )
 
 [node name="Label" type="Label" parent="InfoButton/PopupActivity" index="0"]
 
@@ -716,7 +718,72 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="ConfirmationDialog2" type="ConfirmationDialog" parent="." index="12"]
+[node name="Profile" type="TextureButton" parent="." index="12"]
+
+editor/display_folded = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -65.0
+margin_top = -64.0
+margin_right = -1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+script = ExtResource( 15 )
+_sections_unfolded = [ "Anchor", "Margin", "Material" ]
+
+[node name="PopupActivity" type="PopupDialog" parent="Profile" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_top = -354.0
+margin_right = 197.0
+margin_bottom = -65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="Profile/PopupActivity" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 11.0
+margin_top = 9.0
+margin_right = 51.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ConfirmationDialog2" type="ConfirmationDialog" parent="." index="13"]
 
 pause_mode = 2
 editor/display_folded = true
@@ -740,7 +807,7 @@ popup_exclusive = true
 window_title = "Por favor, Confirma..."
 resizable = false
 dialog_hide_on_ok = true
-script = ExtResource( 18 )
+script = ExtResource( 17 )
 _sections_unfolded = [ "Pause" ]
 __meta__ = {
 "_edit_group_": true
@@ -877,7 +944,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="PopupDialogWrongAnswer" type="PopupDialog" parent="." index="13"]
+[node name="PopupDialogWrongAnswer" type="PopupDialog" parent="." index="14"]
 
 editor/display_folded = true
 visible = false
@@ -896,7 +963,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 19 )
+script = ExtResource( 18 )
 
 [node name="Label" type="Label" parent="PopupDialogWrongAnswer" index="0"]
 
@@ -919,7 +986,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="PanelElements2" type="Panel" parent="." index="14"]
+[node name="PanelElements2" type="Panel" parent="." index="15"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -936,7 +1003,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 20 )
+script = ExtResource( 19 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Button" type="Button" parent="PanelElements2" index="0"]
@@ -1061,13 +1128,13 @@ allow_reselect = false
 icon_mode = 1
 fixed_icon_size = Vector2( 0, 0 )
 
-[node name="Recipiente2" parent="." index="15" instance=ExtResource( 21 )]
+[node name="Recipiente2" parent="." index="16" instance=ExtResource( 20 )]
 
 position = Vector2( 525.576, 275.742 )
 scale = Vector2( 0.3, 0.3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PourSubstanceDialog" type="ConfirmationDialog" parent="." index="16"]
+[node name="PourSubstanceDialog" type="ConfirmationDialog" parent="." index="17"]
 
 pause_mode = 2
 editor/display_folded = true
@@ -1091,7 +1158,7 @@ popup_exclusive = true
 window_title = "Por favor, Confirma..."
 resizable = false
 dialog_hide_on_ok = true
-script = ExtResource( 22 )
+script = ExtResource( 21 )
 _sections_unfolded = [ "Pause", "Popup" ]
 __meta__ = {
 "_edit_group_": true
@@ -1230,7 +1297,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="OverwhelmedRecipientePopup" type="PopupDialog" parent="." index="17"]
+[node name="OverwhelmedRecipientePopup" type="PopupDialog" parent="." index="18"]
 
 visible = false
 anchor_left = 0.0
@@ -1291,9 +1358,9 @@ max_lines_visible = -1
 
 [connection signal="mouse_entered" from="Test Tube2" to="Test Tube2" method="mouse_entered"]
 
-[connection signal="mouse_exited" from="Test Tube2" to="." method="hide_description"]
-
 [connection signal="mouse_exited" from="Test Tube2" to="Test Tube2" method="mouse_exited"]
+
+[connection signal="mouse_exited" from="Test Tube2" to="." method="hide_description"]
 
 [connection signal="body_entered" from="Test Tube2/Area2D" to="Test Tube2" method="_on_Area2D_body_entered"]
 

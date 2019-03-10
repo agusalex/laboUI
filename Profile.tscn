@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://RegistrationPanel.gd" type="Script" id=1]
+[ext_resource path="res://ProfilePanel.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
-[node name="RegistrationPanel" type="Panel" parent="." index="0"]
+[node name="ProfilePanel" type="Panel" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -18,17 +19,16 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 
-[node name="Name" type="LineEdit" parent="RegistrationPanel" index="0"]
+[node name="Name" type="LineEdit" parent="ProfilePanel" index="0"]
 
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -73.0
-margin_top = -116.0
+margin_top = -95.0
 margin_right = 72.0
-margin_bottom = -92.0
+margin_bottom = -71.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -45,17 +45,16 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Placeholder" ]
 
-[node name="LastName" type="LineEdit" parent="RegistrationPanel" index="1"]
+[node name="LastName" type="LineEdit" parent="ProfilePanel" index="1"]
 
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -73.0
-margin_top = -82.0
+margin_top = -58.0
 margin_right = 72.0
-margin_bottom = -58.0
+margin_bottom = -34.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -72,8 +71,9 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Placeholder" ]
 
-[node name="Email" type="LineEdit" parent="RegistrationPanel" index="2"]
+[node name="Email" type="LineEdit" parent="ProfilePanel" index="2"]
 
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -98,8 +98,9 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Placeholder" ]
 
-[node name="Password" type="LineEdit" parent="RegistrationPanel" index="3"]
+[node name="Password" type="LineEdit" parent="ProfilePanel" index="3"]
 
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -125,15 +126,15 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Placeholder" ]
 
-[node name="RegisterButton" type="Button" parent="RegistrationPanel" index="4"]
+[node name="SaveButton" type="Button" parent="ProfilePanel" index="4"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -75.0
+margin_left = -76.0
 margin_top = -10.0
-margin_right = -7.0
+margin_right = -8.0
 margin_bottom = 10.0
 rect_rotation = -0.0989103
 rect_pivot_offset = Vector2( 0, 0 )
@@ -147,19 +148,46 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Registrar"
+text = "Guardar"
 flat = false
 align = 1
 
-[node name="BackButton" type="Button" parent="RegistrationPanel" index="5"]
+[node name="EndButton" type="Button" parent="ProfilePanel" index="5"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -10.0
+margin_right = 36.0
+margin_bottom = 10.0
+rect_rotation = -0.0989103
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Finalizar"
+flat = false
+align = 1
+
+[node name="BackButton" type="Button" parent="ProfilePanel" index="6"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 5.0
+margin_left = 6.0
 margin_top = -10.0
-margin_right = 73.0
+margin_right = 74.0
 margin_bottom = 10.0
 rect_rotation = -0.0989103
 rect_pivot_offset = Vector2( 0, 0 )
@@ -177,14 +205,43 @@ text = "Atras"
 flat = false
 align = 1
 
-[node name="HTTPRegistrationRequest" type="HTTPRequest" parent="RegistrationPanel" index="6"]
+[node name="HTTPProfileUpdate" type="HTTPRequest" parent="ProfilePanel" index="7"]
 
 download_file = ""
 use_threads = false
 body_size_limit = -1
 max_redirects = 8
 
-[node name="EmailAlreadyInUse" type="AcceptDialog" parent="RegistrationPanel" index="7"]
+[node name="HTTPProfileGet" type="HTTPRequest" parent="ProfilePanel" index="8"]
+
+download_file = ""
+use_threads = false
+body_size_limit = -1
+max_redirects = 8
+
+[node name="InvalidFields" type="AcceptDialog" parent="ProfilePanel" index="9"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -41.5
+margin_top = -29.0
+margin_right = 41.5
+margin_bottom = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Alert!"
+resizable = false
+dialog_hide_on_ok = true
+
+[node name="ErrorUpdating" type="AcceptDialog" parent="ProfilePanel" index="10"]
 
 visible = false
 anchor_left = 0.5
@@ -204,11 +261,11 @@ size_flags_vertical = 1
 popup_exclusive = false
 window_title = "Alert!"
 resizable = false
-dialog_text = "\"El correo electronico ya se encuentra en uso\""
+dialog_text = "Error de credenciales, inicie sesion nuevamente"
 dialog_hide_on_ok = true
 _sections_unfolded = [ "Dialog", "Grow Direction", "Popup", "Visibility" ]
 
-[node name="InvalidFields" type="AcceptDialog" parent="RegistrationPanel" index="8"]
+[node name="InternetConection" type="AcceptDialog" parent="ProfilePanel" index="11"]
 
 visible = false
 anchor_left = 0.5
@@ -228,35 +285,45 @@ size_flags_vertical = 1
 popup_exclusive = false
 window_title = "Alert!"
 resizable = false
+dialog_text = "\"Ha ocurrido un error inesperado revise su conexion a internet\""
 dialog_hide_on_ok = true
 _sections_unfolded = [ "Dialog", "Grow Direction", "Popup", "Visibility" ]
 
-[node name="Label" type="Label" parent="RegistrationPanel" index="9"]
+[node name="Label" type="Label" parent="ProfilePanel" index="12"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -512.0
-margin_top = -167.0
+margin_top = -187.0
 margin_right = 512.0
-margin_bottom = -153.0
+margin_bottom = -173.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Registro"
+text = "Perfil"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[connection signal="pressed" from="RegistrationPanel/RegisterButton" to="RegistrationPanel" method="_on_RegisterButton_pressed"]
+[node name="Sprite" type="Sprite" parent="ProfilePanel" index="13"]
 
-[connection signal="pressed" from="RegistrationPanel/BackButton" to="RegistrationPanel" method="_on_BackButton_pressed"]
+position = Vector2( 512.001, 165 )
+texture = ExtResource( 2 )
 
-[connection signal="request_completed" from="RegistrationPanel/HTTPRegistrationRequest" to="RegistrationPanel" method="onHTTPRegistrationRequestCompleted"]
+[connection signal="pressed" from="ProfilePanel/SaveButton" to="ProfilePanel" method="_on_SaveButton_pressed"]
+
+[connection signal="pressed" from="ProfilePanel/EndButton" to="ProfilePanel" method="_on_SaveButton_pressed"]
+
+[connection signal="pressed" from="ProfilePanel/BackButton" to="ProfilePanel" method="_on_BackButton_pressed"]
+
+[connection signal="request_completed" from="ProfilePanel/HTTPProfileUpdate" to="ProfilePanel" method="_on_HTTPProfileUpdate_request_completed"]
+
+[connection signal="request_completed" from="ProfilePanel/HTTPProfileGet" to="ProfilePanel" method="_on_HTTPProfileGet_request_completed"]
 
 

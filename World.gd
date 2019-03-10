@@ -12,6 +12,7 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	
+	Game.setState(Game.State.PLAYING)
 	elementos = Global_SubstanceDatabase.get_all()
 	
 	var position_x = 400

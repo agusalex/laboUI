@@ -22,6 +22,9 @@ Global_ElementDatabase="*res://Global_ElementDatabase.gd"
 Global_SubstanceDatabase="*res://Global_SubstanceDatabase.gd"
 Aggregation_States="*res://Aggregation_States.gd"
 Measurement_Units_Parser="*res://Measurement_Units_Parser.gd"
+RegexUtils="*res://Regex.gd"
+Token="*res://Token.gd"
+Game="*res://GameState.gd"
 
 [display]
 

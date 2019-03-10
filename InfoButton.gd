@@ -11,8 +11,5 @@ func _ready():
 	pass
 
 func _pressed():
-	info_visible = !info_visible
-	if info_visible:
-		$PopupActivity.show_message()
-	else:
-		$PopupActivity.hide_message()
+	get_tree().change_scene("res://Profile.tscn")
+	
