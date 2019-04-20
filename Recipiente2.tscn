@@ -3,7 +3,7 @@
 [ext_resource path="res://Node2D.gd" type="Script" id=1]
 [ext_resource path="res://assets/tools/vaso precipitado2.png" type="Texture" id=2]
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=1]
 
 code = "shader_type canvas_item;
 
@@ -13,32 +13,36 @@ void fragment(){
 
 }"
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=2]
 
 render_priority = 0
-shader = SubResource( 2 )
+shader = SubResource( 1 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 116.448, 150.718 )
 
-[node name="Recipiente2" type="Node2D"]
+[node name="Recipiente2" type="Node2D" index="0"]
 
+position = Vector2( 776.635, 409.195 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 max_capacity = 100
 
 [node name="ProgressBar" type="ProgressBar" parent="." index="0"]
 
-material = SubResource( 3 )
+material = SubResource( 2 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 406.0
-margin_top = 436.0
-margin_right = 647.0
-margin_bottom = 642.0
+margin_left = -103.0
+margin_top = 122.0
+margin_right = 138.0
+margin_bottom = 328.0
 rect_rotation = -90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -58,7 +62,7 @@ _sections_unfolded = [ "Material" ]
 
 [node name="Node2D" type="Node2D" parent="." index="1"]
 
-position = Vector2( 497.423, 283.38 )
+position = Vector2( -10.3124, -27.274 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -79,7 +83,7 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" index="0"]
 
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [connection signal="body_entered" from="Node2D/Area2D" to="." method="_on_Area2D_body_entered"]
 

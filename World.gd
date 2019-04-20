@@ -92,6 +92,14 @@ func _on_ElementsList_item_selected(index):
 	var item = Global_ElementDatabase.get_item(index+1)
 	if item != null:
 		$PopupElements.show_message(item, get_viewport().get_mouse_position())
+		
+	# Agregando llenar recipiente al clickear
+	var substanciaSeleccionada = Global_SubstanceDatabase.get_item(index+1)
+	if substanciaSeleccionada != null:
+		add_child(substanciaSeleccionada)
+		substanciaSeleccionada.position.x = $Recipiente2.position.x + 70
+		substanciaSeleccionada.position.y = $Recipiente2.position.y - 70
+		substanciaSeleccionada.getImage().rotate(1.5708)
 
 
 func _on_ConfirmationDialog_confirmed():
@@ -141,13 +149,14 @@ func _on_Substancia2_selected(instance):
 
 func _on_Recipiente2_hit():
 	#popup
-	$PourSubstanceDialog/Panel/VBoxContainer/Label.text = "Substancia: " + selectedSubstance.nombre
-	$PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer/Label.text = "Ingrese la cantidad deseada:"
-	$PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer/Label2.text = Measurement_Units_Parser.get_measurement_unit(selectedSubstance.aggregation_state)
-	
-	$PourSubstanceDialog.popup()
-	
-	get_tree().paused = true
+	if selectedSubstance != null:
+		$PourSubstanceDialog/Panel/VBoxContainer/Label.text = "Substancia: " + selectedSubstance.nombre
+		$PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer/Label.text = "Ingrese la cantidad deseada:"
+		$PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer/Label2.text = Measurement_Units_Parser.get_measurement_unit(selectedSubstance.aggregation_state)
+		
+		$PourSubstanceDialog.popup()
+		
+		get_tree().paused = true
 
 
 func _on_PourSubstanceDialog_confirmed():
@@ -157,6 +166,9 @@ func _on_PourSubstanceDialog_confirmed():
 	$Recipiente2.fill(input)
 	
 	get_tree().paused = false
+	
+	# Borro la substancia
+	selectedSubstance.queue_free()
 
 func _on_PourSubstanceDialog_hide():
 	get_tree().paused = false
@@ -167,3 +179,28 @@ func _on_Recipiente2_overwhelmed():
 	$OverwhelmedRecipientePopup/Label.set_autowrap(true)
 	$OverwhelmedRecipientePopup/Label.set_valign(1)
 	$OverwhelmedRecipientePopup.popup()
+
+
+func _on_ButtonEspecie1_pressed():
+	var s = $ButtonEspecie1.spawn()
+	s.position.x = 50
+	s.position.y = 200
+	s.connect("selected", self, "_on_Substancia2_selected")
+	add_child(s)
+	
+
+
+func _on_ButtonEspecie2_pressed():
+	var s = $ButtonEspecie2.spawn()
+	s.position.x = 100
+	s.position.y = 200
+	s.connect("selected", self, "_on_Substancia2_selected")
+	add_child(s)
+
+
+func _on_ButtonEspecie3_pressed():
+	var s = $ButtonEspecie3.spawn()
+	s.position.x = 150
+	s.position.y = 200
+	s.connect("selected", self, "_on_Substancia2_selected")
+	add_child(s)

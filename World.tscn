@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://TestTube.gd" type="Script" id=2]
@@ -22,6 +22,10 @@
 [ext_resource path="res://PanelElements2.gd" type="Script" id=20]
 [ext_resource path="res://Recipiente2.tscn" type="PackedScene" id=21]
 [ext_resource path="res://PourSubstanceDialog.gd" type="Script" id=22]
+[ext_resource path="res://assets/tools/tube.png" type="Texture" id=23]
+[ext_resource path="res://ButtonEspecie1.gd" type="Script" id=24]
+[ext_resource path="res://ButtonEspecie2.gd" type="Script" id=25]
+[ext_resource path="res://ButtonEspecie3.gd" type="Script" id=26]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -64,7 +68,7 @@ flags = 4
 load_path = "res://.import/info_icon.png-1e3c34d3b4831e1b03c76ead1f33fd25.stex"
 _sections_unfolded = [ "Resource" ]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -90,7 +94,7 @@ changedTexture = ExtResource( 3 )
 
 visible = false
 position = Vector2( 1.11115, 0.136139 )
-rotation = 2.32831e-10
+rotation = 2.32831e-010
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -114,7 +118,7 @@ audio_bus_name = "Master"
 
 visible = false
 position = Vector2( 1.11111, 0.136139 )
-rotation = 4.65661e-10
+rotation = 4.65661e-010
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -138,7 +142,7 @@ changedTexture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Test Tube2" index="0"]
 
-rotation = 4.36557e-10
+rotation = 4.36557e-010
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
@@ -147,7 +151,7 @@ _sections_unfolded = [ "Transform" ]
 
 visible = false
 position = Vector2( 1.11115, 0.136139 )
-rotation = 2.32831e-10
+rotation = 2.32831e-010
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -166,7 +170,7 @@ audio_bus_name = "Master"
 
 visible = false
 position = Vector2( 1.11111, 0.136139 )
-rotation = 4.65661e-10
+rotation = 4.65661e-010
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -1133,7 +1137,7 @@ fixed_icon_size = Vector2( 0, 0 )
 
 [node name="Recipiente2" parent="." index="16" instance=ExtResource( 21 )]
 
-position = Vector2( 525.576, 275.742 )
+position = Vector2( 666.296, 364.385 )
 scale = Vector2( 0.3, 0.3 )
 _sections_unfolded = [ "Transform" ]
 
@@ -1343,6 +1347,93 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="ButtonEspecie1" type="TextureButton" parent="." index="19"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 925.0
+margin_top = 187.0
+margin_right = 965.0
+margin_bottom = 227.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 23 )
+script = ExtResource( 24 )
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ButtonEspecie2" type="TextureButton" parent="." index="20"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 926.0
+margin_top = 269.0
+margin_right = 1054.0
+margin_bottom = 525.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 23 )
+script = ExtResource( 25 )
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ButtonEspecie3" type="TextureButton" parent="." index="21"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 929.0
+margin_top = 364.0
+margin_right = 1057.0
+margin_bottom = 620.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 23 )
+script = ExtResource( 26 )
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
 [connection signal="hit" from="Test Tube" to="." method="show_description"]
 
 [connection signal="input_event" from="Test Tube" to="Test Tube" method="_on_Test_Tube_input_event"]
@@ -1398,5 +1489,11 @@ max_lines_visible = -1
 [connection signal="confirmed" from="PourSubstanceDialog" to="." method="_on_PourSubstanceDialog_confirmed"]
 
 [connection signal="hide" from="PourSubstanceDialog" to="." method="_on_PourSubstanceDialog_hide"]
+
+[connection signal="pressed" from="ButtonEspecie1" to="." method="_on_ButtonEspecie1_pressed"]
+
+[connection signal="pressed" from="ButtonEspecie2" to="." method="_on_ButtonEspecie2_pressed"]
+
+[connection signal="pressed" from="ButtonEspecie3" to="." method="_on_ButtonEspecie3_pressed"]
 
 
