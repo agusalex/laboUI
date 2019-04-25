@@ -68,7 +68,7 @@ flags = 4
 load_path = "res://.import/info_icon.png-1e3c34d3b4831e1b03c76ead1f33fd25.stex"
 _sections_unfolded = [ "Resource" ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -1118,9 +1118,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 13.0
+margin_left = 12.0
 margin_top = 27.0
-margin_right = 710.0
+margin_right = 709.0
 margin_bottom = 92.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -1440,9 +1440,9 @@ __meta__ = {
 
 [connection signal="mouse_entered" from="Test Tube" to="Test Tube" method="mouse_entered"]
 
-[connection signal="mouse_exited" from="Test Tube" to="." method="hide_description"]
-
 [connection signal="mouse_exited" from="Test Tube" to="Test Tube" method="mouse_exited"]
+
+[connection signal="mouse_exited" from="Test Tube" to="." method="hide_description"]
 
 [connection signal="body_entered" from="Test Tube/Area2D" to="Test Tube" method="_on_Area2D_body_entered"]
 

@@ -13,7 +13,7 @@ extents = Vector2( 10, 50 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 50 )
 
-[node name="Substancia2" type="KinematicBody2D"]
+[node name="Substancia2" type="KinematicBody2D" index="0"]
 
 position = Vector2( 420, 180 )
 input_pickable = false

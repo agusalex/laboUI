@@ -89,17 +89,25 @@ func _on_ElementsButton_pressed():
 
 
 func _on_ElementsList_item_selected(index):
-	var item = Global_ElementDatabase.get_item(index+1)
-	if item != null:
-		$PopupElements.show_message(item, get_viewport().get_mouse_position())
-		
-	# Agregando llenar recipiente al clickear
-	var substanciaSeleccionada = Global_SubstanceDatabase.get_item(index+1)
-	if substanciaSeleccionada != null:
-		add_child(substanciaSeleccionada)
-		substanciaSeleccionada.position.x = $Recipiente2.position.x + 70
-		substanciaSeleccionada.position.y = $Recipiente2.position.y - 70
-		substanciaSeleccionada.getImage().rotate(1.5708)
+#	var item = Global_ElementDatabase.get_item(index+1)
+#	if item != null:
+#		$PopupElements.show_message(item, get_viewport().get_mouse_position())
+#
+#	# Agregando llenar recipiente al clickear
+#	var substanciaSeleccionada = Global_SubstanceDatabase.get_item(index+1)
+#	if substanciaSeleccionada != null:
+#		add_child(substanciaSeleccionada)
+#		substanciaSeleccionada.position.x = $Recipiente2.position.x + 70
+#		substanciaSeleccionada.position.y = $Recipiente2.position.y - 70
+#		substanciaSeleccionada.getImage().rotate(1.5708)
+	
+	#Se modificó lo de arriba por lo siguiente...
+	var s = Global_SubstanceDatabase.get_item(index+1)
+	if s != null:
+		s.position.x = 50 * (index+1)
+		s.position.y = 200
+		s.connect("selected", self, "_on_Substancia2_selected")
+		add_child(s)
 
 
 func _on_ConfirmationDialog_confirmed():

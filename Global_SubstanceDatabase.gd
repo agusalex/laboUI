@@ -37,11 +37,13 @@ func get_item(id):
 	var g = item['color']['g']
 	var b = item['color']['b']
 	
-	s.expression = Color(r, g, b)
+	s.color = Color(r, g, b)
 	
 	s.expression = item['expression']
 	
 	s.aggregation_state = item['aggregation_state']
+	
+	s.colorear()
 	
 	return s
 	
