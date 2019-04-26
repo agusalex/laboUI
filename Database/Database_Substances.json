@@ -2,9 +2,9 @@
   "1": {
     "name": "Hydrogen",
     "color": {
-      "r": 0.0,
-      "g": 0.0,
-      "b": 1.0
+      "r": 0.5411,
+      "g": 1.0,
+      "b": 0.7450
     },
     "expression": "H",
     "aggregation_state": 2
@@ -13,9 +13,9 @@
   "2": {
     "name": "Carbon",
     "color": {
-      "r": 1.0,
-      "g": 0.0,
-      "b": 0.0
+      "r": 0.4862,
+      "g": 0.7254,
+      "b": 1.0
     },
     "expression": "C",
     "aggregation_state": 0
@@ -24,9 +24,9 @@
   "3": {
     "name": "Mercury",
     "color": {
-      "r": 0.0,
-      "g": 1.0,
-      "b": 0.0
+      "r": 0.8078,
+      "g": 0.6117,
+      "b": 0.9294
     },
     "expression": "Hg",
     "aggregation_state": 1

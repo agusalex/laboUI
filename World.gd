@@ -8,22 +8,25 @@ var elements_bar_is_visible = false
 var elementos
 var selectedSubstance
 
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	
 	Game.setState(Game.State.PLAYING)
-	elementos = Global_SubstanceDatabase.get_all()
 	
-	var position_x = 400
-	var position_y = 300
-	
-	for item in elementos:
-		item.position.x = position_x
-		item.position.y = position_y
-		position_x += 100
-		item.connect("selected", self, "_on_Substancia2_selected")
-		add_child(item)
+#	elementos = Global_SubstanceDatabase.get_all()
+#	var position_x = 400
+#	var position_y = 300
+#
+#	for item in elementos:
+#		item.position.x = position_x
+#		item.position.y = position_y
+#		position_x += 100
+#		item.connect("selected", self, "_on_Substancia2_selected")
+#		item.connect("mouseOver", self, "_on_Substancia2_mouseOver")
+#		add_child(item)
+
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -107,6 +110,7 @@ func _on_ElementsList_item_selected(index):
 		s.position.x = 50 * (index+1)
 		s.position.y = 200
 		s.connect("selected", self, "_on_Substancia2_selected")
+		s.connect("mouseOver", self, "_on_Substancia2_mouseOver")
 		add_child(s)
 
 
@@ -177,6 +181,7 @@ func _on_PourSubstanceDialog_confirmed():
 	
 	# Borro la substancia
 	selectedSubstance.queue_free()
+	$PopupDialog.hide_message() # Escondo la etiqueta, sino queda en la pantalla
 
 func _on_PourSubstanceDialog_hide():
 	get_tree().paused = false
@@ -189,26 +194,8 @@ func _on_Recipiente2_overwhelmed():
 	$OverwhelmedRecipientePopup.popup()
 
 
-func _on_ButtonEspecie1_pressed():
-	var s = $ButtonEspecie1.spawn()
-	s.position.x = 50
-	s.position.y = 200
-	s.connect("selected", self, "_on_Substancia2_selected")
-	add_child(s)
-	
-
-
-func _on_ButtonEspecie2_pressed():
-	var s = $ButtonEspecie2.spawn()
-	s.position.x = 100
-	s.position.y = 200
-	s.connect("selected", self, "_on_Substancia2_selected")
-	add_child(s)
-
-
-func _on_ButtonEspecie3_pressed():
-	var s = $ButtonEspecie3.spawn()
-	s.position.x = 150
-	s.position.y = 200
-	s.connect("selected", self, "_on_Substancia2_selected")
-	add_child(s)
+func _on_Substancia2_mouseOver(instance):
+	if (instance.mouse_inside):
+		$PopupDialog.show_message(instance.nombre, get_viewport().get_mouse_position())
+	else:
+		$PopupDialog.hide_message()
