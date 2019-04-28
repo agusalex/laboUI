@@ -2,7 +2,6 @@ extends Panel
 var loginURL = "http://laboapi.herokuapp.com/api/rest-auth/login/"
 
 func _ready():
-	Game.setState(Game.State.LOGIN)
 	Token.flushToken()
 	
 func _input(ev):
@@ -10,7 +9,7 @@ func _input(ev):
     	_on_LoginButton_pressed()
 
 func _on_RegistroButton_pressed():
-		get_tree().change_scene("res://Registration.tscn")
+		get_tree().change_scene("res://scenes/Registration.tscn")
 			
 func _on_LoginButton_pressed():
 	$LoginButton.disabled = true
@@ -18,7 +17,7 @@ func _on_LoginButton_pressed():
 	if($User.text != ""):
 		login($User.text,$Password.text)
 	else: #Disable this for production
-		get_tree().change_scene("res://World.tscn")	
+		get_tree().change_scene("res://scenes/World.tscn")	
 		
 func login(username,password):
 	if(!Token.isAuthenticated()):		
@@ -37,7 +36,7 @@ func onHTTPLoginRequestCompleted(result, response_code, headers, body):
 	if(response_code==200):
 		print("success!")
 		Token.setToken(JSON.parse(body.get_string_from_utf8()).result.key)
-		get_tree().change_scene("res://World.tscn")
+		get_tree().change_scene("res://scenes/World.tscn")
 	elif(response_code==400):
 		$LoginError.dialog_text = "Error: Email o contraseña invalidos"
 		$LoginError.popup()

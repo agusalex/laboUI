@@ -1,7 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://ChemistryTool.gd" type="Script" id=1]
-[ext_resource path="res://tube2.png" type="Texture" id=2]
+[ext_resource path="res://scripts/ChemistryTool.gd" type="Script" id=1]
+[ext_resource path="res://assets/tube2.png" type="Texture" id=2]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

@@ -1,27 +1,41 @@
 [gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://World.gd" type="Script" id=1]
-[ext_resource path="res://TestTube.gd" type="Script" id=2]
-[ext_resource path="res://tubo amarillo.png" type="Texture" id=3]
-[ext_resource path="res://tubo azul.png" type="Texture" id=4]
-[ext_resource path="res://tubo rojo.png" type="Texture" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
-[ext_resource path="res://PopupDialog.gd" type="Script" id=7]
-[ext_resource path="res://ConfirmationDialog.gd" type="Script" id=8]
-[ext_resource path="res://Panel.gd" type="Script" id=9]
-[ext_resource path="res://PopupItems.gd" type="Script" id=10]
-[ext_resource path="res://instrumentos_icon.png" type="Texture" id=11]
-[ext_resource path="res://elements_icon.png" type="Texture" id=12]
-[ext_resource path="res://PanelElements.gd" type="Script" id=13]
-[ext_resource path="res://PopupElements.gd" type="Script" id=14]
-[ext_resource path="res://InfoButton.gd" type="Script" id=15]
-[ext_resource path="res://PopupActivity.gd" type="Script" id=16]
-[ext_resource path="res://ProfileButton.gd" type="Script" id=17]
-[ext_resource path="res://ConfirmationDialog2.gd" type="Script" id=18]
-[ext_resource path="res://PopupDialogWrong.gd" type="Script" id=19]
-[ext_resource path="res://PanelElements2.gd" type="Script" id=20]
-[ext_resource path="res://Recipiente2.tscn" type="PackedScene" id=21]
-[ext_resource path="res://PourSubstanceDialog.gd" type="Script" id=22]
+[ext_resource path="res://scripts/screens/World.gd" type="Script" id=1]
+[ext_resource path="res://scripts/TestTube.gd" type="Script" id=2]
+[ext_resource path="res://assets/tubo amarillo.png" type="Texture" id=3]
+[ext_resource path="res://assets/tubo azul.png" type="Texture" id=4]
+[ext_resource path="res://assets/tubo rojo.png" type="Texture" id=5]
+[ext_resource path="res://assets/icon.png" type="Texture" id=6]
+[ext_resource path="res://scripts/GUI/Popup/PopupDialog.gd" type="Script" id=7]
+[ext_resource path="res://scripts/GUI/Popup/ConfirmationDialog.gd" type="Script" id=8]
+[ext_resource path="res://scripts/Panel.gd" type="Script" id=9]
+[ext_resource path="res://scripts/GUI/Popup/PopupItems.gd" type="Script" id=10]
+[ext_resource path="res://assets/instrumentos_icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/elements_icon.png" type="Texture" id=12]
+[ext_resource path="res://scripts/GUI/PanelElements.gd" type="Script" id=13]
+[ext_resource path="res://scripts/GUI/Popup/PopupElements.gd" type="Script" id=14]
+[ext_resource path="res://scripts/GUI/Buttons/InfoButton.gd" type="Script" id=15]
+[ext_resource path="res://scripts/GUI/Popup/PopupActivity.gd" type="Script" id=16]
+[ext_resource path="res://scripts/GUI/Buttons/ProfileButton.gd" type="Script" id=17]
+[ext_resource path="res://scripts/GUI/Popup/ConfirmationDialog2.gd" type="Script" id=18]
+[ext_resource path="res://scripts/GUI/Popup/PopupDialogWrong.gd" type="Script" id=19]
+[ext_resource path="res://scripts/GUI/PanelElements2.gd" type="Script" id=20]
+[ext_resource path="res://scenes/Recipiente2.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scripts/GUI/Popup/PourSubstanceDialog.gd" type="Script" id=22]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 

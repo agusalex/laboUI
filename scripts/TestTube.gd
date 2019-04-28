@@ -11,7 +11,7 @@ var collide
 var interaction = false
 signal hit
 
-export (Texture) var changedTexture = preload("res://tubo amarillo.png")
+export (Texture) var changedTexture = preload("res://assets/tubo amarillo.png")
 
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed
@@ -60,7 +60,7 @@ func _on_Area2D_body_entered(body):
 	#for body in $Area2D.get_overlapping_bodies():
 		
 func change_texture():
-	$Sprite.texture = load("res://tubo amarillo.png")
+	$Sprite.texture = load("res://assets/tubo amarillo.png")
 
 
 func mouse_entered():

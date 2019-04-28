@@ -20,10 +20,10 @@ func _ready():
 	if(Token.isAuthenticated()):
 		makeGetRequest()
 	else:
-		get_tree().change_scene("res://Login.tscn")
+		get_tree().change_scene("res://scenes/Login.tscn")
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://World.tscn")
+	get_tree().change_scene("res://scenes/World.tscn")
 	
 	
 func _on_SaveButton_pressed():
@@ -85,10 +85,10 @@ func _on_HTTPProfileGet_request_completed(result, response_code, headers, body):
 		print("Updated User data")
 	elif(response_code==400):#Invalid credentials
 		$ErrorUpdating.popup()
-		get_tree().change_scene("res://Login.tscn")
+		get_tree().change_scene("res://scenes/Login.tscn")
 	elif(response_code==401): #No credentials
 		$ErrorUpdating.popup()
-		get_tree().change_scene("res://Login.tscn")
+		get_tree().change_scene("res://scenes/Login.tscn")
 	else:
 		$InternetConection.popup()
 	
@@ -107,13 +107,13 @@ func _on_HTTPProfileUpdate_request_completed(result, response_code, headers, bod
 		username = json.result.username
 		print("Updated User data")
 		if(Game.getState() == Game.State.PROFILE_FIRST_RUN):
-			get_tree().change_scene("res://World.tscn")		
+			get_tree().change_scene("res://scenes/World.tscn")		
 	elif(response_code==400):#Invalid credentials
 		$ErrorUpdating.popup()
-		get_tree().change_scene("res://Login.tscn")
+		get_tree().change_scene("res://scenes/Login.tscn")
 	elif(response_code==401): #No credentials
 		$ErrorUpdating.popup()
-		get_tree().change_scene("res://Login.tscn")
+		get_tree().change_scene("res://scenes/Login.tscn")
 	else:
 		$InternetConection.popup()
 		

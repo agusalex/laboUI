@@ -11,20 +11,20 @@ config_version=3
 [application]
 
 config/name="Laboratorio de Quimica"
-run/main_scene="res://Login.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://scenes/Login.tscn"
+config/icon="res://assets/icon.png"
 
 [autoload]
 
-Global_DataParser="*res://Global_DataParser.gd"
-Global_ItemDatabase="*res://Global_ItemDatabase.gd"
-Global_ElementDatabase="*res://Global_ElementDatabase.gd"
-Global_SubstanceDatabase="*res://Global_SubstanceDatabase.gd"
-Aggregation_States="*res://Aggregation_States.gd"
-Measurement_Units_Parser="*res://Measurement_Units_Parser.gd"
-RegexUtils="*res://Regex.gd"
-Token="*res://Token.gd"
-Game="*res://GameState.gd"
+Global_DataParser="*res://scripts/globals/Global_DataParser.gd"
+Global_ItemDatabase="*res://scripts/globals/Global_ItemDatabase.gd"
+Global_ElementDatabase="*res://scripts/globals/Global_ElementDatabase.gd"
+Global_SubstanceDatabase="*res://scripts/globals/Global_SubstanceDatabase.gd"
+Aggregation_States="*res://scripts/globals/Aggregation_States.gd"
+Measurement_Units_Parser="*res://scripts/Measurement_Units_Parser.gd"
+RegexUtils="*res://scripts/globals/Regex.gd"
+Token="*res://scripts/globals/Token.gd"
+Game="*res://scripts/globals/GameState.gd"
 
 [display]
 

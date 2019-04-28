@@ -2,7 +2,7 @@ extends Node
 
 var url_database_item = "res://Database//Database_Substances.json"
 
-var substancia = load("res://Substancia2.tscn")
+var substancia = load("res://scenes/Substancia2.tscn")
 
 func show_data(item):
 	if item == null :
