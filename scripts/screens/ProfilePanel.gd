@@ -36,7 +36,7 @@ func _on_SaveButton_pressed():
 	validLastName = (!RegexUtils.regexPartialMatch(RegexUtils.EXPRESSION.invalidName,$LastName.text))&&($LastName.text.length()>1)
 	#register($Name.text.capitalize(),$Last.text.capitalize(),)
 	if(validName&&validLastName):
-		update($Name.text.capitalize(),$LastName.text.capitalize())
+		updateProfile($Name.text.capitalize(),$LastName.text.capitalize())
 	else:
 		var verificationArray = [validName,validLastName]
 		var messageArray = [NameMessage,LastNameMessage]
@@ -50,9 +50,10 @@ func _on_SaveButton_pressed():
 		$InvalidFields.popup()
 
 
-func update(name,lastname):
-		var credentialsDict = {"first_name":name,"last_name":lastname,"username":username} 		#dictionary with credentials "first_name":name,"last_name":lastname
-		makeUpdateRequest(credentialsDict)	
+func updateProfile(name,lastname):
+	var credentialsDict = {"first_name":name,"last_name":lastname,"username":username} 		#dictionary with credentials "first_name":name,"last_name":lastname
+	makeUpdateRequest(credentialsDict)
+	return
 	
 	
 func makeGetRequest():

@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-var nombre
+#var nombre
 var color
-var expression
-var aggregation_state #agregarlo a la base de datos
+#var expression
+#var aggregation_state #agregarlo a la base de datos
 const TYPE = "SUBSTANCE"
 
 var texture = preload("res://assets/tools/tube.png")
@@ -14,7 +14,6 @@ var is_inside
 signal selected(instance)
 signal mouseOver(instance)
 var mouse_inside
-var i = 1
 
 func _ready():
 	$Sprite.set_texture(texture)

@@ -8,7 +8,7 @@ func _ready():
 	# Initialization here
 	pass
 
-func show_messge(text1, text2):
+func show_messge():
 	$Panel/Label2.show()
 	$Panel/Label3.show()
 	popup()

@@ -5,7 +5,7 @@ onready var staticTube
 var tools_bar_is_visible = false
 var elements_bar_is_visible = false
 
-var elementos
+#var elementos
 var selectedSubstance
 
 
@@ -57,7 +57,7 @@ func show_confirm_dialog():
 	actualTube.position.x = staticTube.position.x + 70
 	actualTube.position.y = staticTube.position.y - 70
 
-	$ConfirmationDialog2.show_messge("Cantidad de H2SO4:", "Cantidad de Fe(OH)2:")
+	$ConfirmationDialog2.show_messge()
 	$ConfirmationDialog2.get_ok()
 	get_tree().paused = true
 	
