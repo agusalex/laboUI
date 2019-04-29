@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/GUI/ItemList/MyItemList.gd" type="Script" id=1]
+[ext_resource path="res://scenes/GUI/ItemList/DefaultRow.tscn" type="PackedScene" id=2]
+
+[node name="MyItemList" type="ScrollContainer"]
+margin_right = 379.0
+margin_bottom = 225.0
+script = ExtResource( 1 )
+Row = ExtResource( 2 )
+
+[node name="Rows" type="VBoxContainer" parent="."]
+margin_right = 379.0
+size_flags_horizontal = 3
