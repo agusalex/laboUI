@@ -19,7 +19,8 @@ func Clear():
 	for row in _rows_node.get_children():
 		_rows_node.remove_child(row)
 		row.queue_free()
-
+func _ready():
+	set_content()		
 func set_content(val):
 	Clear()
 	var count = 0
