@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-#var nombre
+var nombre
 var color
-#var expression
-#var aggregation_state #agregarlo a la base de datos
+var expression
+var aggregation_state #agregarlo a la base de datos
 const TYPE = "SUBSTANCE"
 
 var texture = preload("res://assets/tools/tube.png")

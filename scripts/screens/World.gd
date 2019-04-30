@@ -26,6 +26,7 @@ func _ready():
 #		item.connect("selected", self, "_on_Substancia2_selected")
 #		item.connect("mouseOver", self, "_on_Substancia2_mouseOver")
 #		add_child(item)
+	$TrashCan.connect("delete", self, "_on_TrashCan_body_entered")
 
 
 #func _process(delta):
@@ -199,3 +200,7 @@ func _on_Substancia2_mouseOver(instance):
 		$PopupDialog.show_message(instance.nombre, get_viewport().get_mouse_position())
 	else:
 		$PopupDialog.hide_message()
+
+func _on_TrashCan_body_entered(instance):
+	instance.queue_free()
+	$PopupDialog.hide_message()

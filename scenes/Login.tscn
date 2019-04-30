@@ -76,6 +76,7 @@ margin_top = -171.0
 margin_right = 20.0
 margin_bottom = -157.0
 text = "Login"
+
 [connection signal="pressed" from="LoginPanel/LoginButton" to="LoginPanel" method="_on_LoginButton_pressed"]
 [connection signal="request_completed" from="LoginPanel/HTTPLoginRequest" to="LoginPanel" method="onHTTPLoginRequestCompleted"]
 [connection signal="pressed" from="LoginPanel/RegistroButton" to="LoginPanel" method="_on_RegistroButton_pressed"]

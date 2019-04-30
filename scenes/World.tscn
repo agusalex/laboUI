@@ -2,65 +2,40 @@
 
 [ext_resource path="res://scripts/screens/World.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TestTube.gd" type="Script" id=2]
-[ext_resource path="res://assets/tubo amarillo.png" type="Texture" id=3]
-[ext_resource path="res://assets/tubo azul.png" type="Texture" id=4]
-[ext_resource path="res://assets/tubo rojo.png" type="Texture" id=5]
-[ext_resource path="res://assets/icon.png" type="Texture" id=6]
-[ext_resource path="res://scripts/GUI/Popup/PopupDialog.gd" type="Script" id=7]
-[ext_resource path="res://scripts/GUI/Popup/ConfirmationDialog.gd" type="Script" id=8]
-[ext_resource path="res://scripts/Panel.gd" type="Script" id=9]
-[ext_resource path="res://scripts/GUI/Popup/PopupItems.gd" type="Script" id=10]
-[ext_resource path="res://assets/instrumentos_icon.png" type="Texture" id=11]
-[ext_resource path="res://assets/elements_icon.png" type="Texture" id=12]
-[ext_resource path="res://scripts/GUI/PanelElements.gd" type="Script" id=13]
-[ext_resource path="res://scripts/GUI/Popup/PopupElements.gd" type="Script" id=14]
-[ext_resource path="res://scripts/GUI/Buttons/InfoButton.gd" type="Script" id=15]
-[ext_resource path="res://scripts/GUI/Popup/PopupActivity.gd" type="Script" id=16]
-[ext_resource path="res://scripts/GUI/Buttons/ProfileButton.gd" type="Script" id=17]
-[ext_resource path="res://scripts/GUI/Popup/ConfirmationDialog2.gd" type="Script" id=18]
-[ext_resource path="res://scripts/GUI/Popup/PopupDialogWrong.gd" type="Script" id=19]
-[ext_resource path="res://scripts/GUI/PanelElements2.gd" type="Script" id=20]
-[ext_resource path="res://scenes/Recipiente2.tscn" type="PackedScene" id=21]
-[ext_resource path="res://scripts/GUI/Popup/PourSubstanceDialog.gd" type="Script" id=22]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[ext_resource path="res://assets/tubo azul.png" type="Texture" id=3]
+[ext_resource path="res://assets/tubo rojo.png" type="Texture" id=4]
+[ext_resource path="res://assets/icon.png" type="Texture" id=5]
+[ext_resource path="res://scripts/GUI/Popup/PopupDialog.gd" type="Script" id=6]
+[ext_resource path="res://scripts/GUI/Popup/ConfirmationDialog.gd" type="Script" id=7]
+[ext_resource path="res://scripts/Panel.gd" type="Script" id=8]
+[ext_resource path="res://scripts/GUI/Popup/PopupItems.gd" type="Script" id=9]
+[ext_resource path="res://assets/instrumentos_icon.png" type="Texture" id=10]
+[ext_resource path="res://assets/elements_icon.png" type="Texture" id=11]
+[ext_resource path="res://scripts/GUI/PanelElements.gd" type="Script" id=12]
+[ext_resource path="res://scripts/GUI/Popup/PopupElements.gd" type="Script" id=13]
+[ext_resource path="res://scripts/GUI/Buttons/InfoButton.gd" type="Script" id=14]
+[ext_resource path="res://scripts/GUI/Popup/PopupActivity.gd" type="Script" id=15]
+[ext_resource path="res://scripts/GUI/Buttons/ProfileButton.gd" type="Script" id=16]
+[ext_resource path="res://scripts/GUI/Popup/ConfirmationDialog2.gd" type="Script" id=17]
+[ext_resource path="res://scripts/GUI/Popup/PopupDialogWrong.gd" type="Script" id=18]
+[ext_resource path="res://scripts/GUI/PanelElements2.gd" type="Script" id=19]
+[ext_resource path="res://scenes/Recipiente2.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scripts/GUI/Popup/PourSubstanceDialog.gd" type="Script" id=21]
+[ext_resource path="res://scenes/TrashCan.tscn" type="PackedScene" id=22]
 
 [sub_resource type="CapsuleShape2D" id=1]
-
-custom_solver_bias = 0.0
 radius = 13.8449
 height = 54.8171
 
 [sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
 extents = Vector2( 31.4286, 20 )
 
 [sub_resource type="CanvasItemMaterial" id=3]
 
-render_priority = 0
-blend_mode = 0
-light_mode = 0
-
 [sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
 extents = Vector2( 23.3681, 52.356 )
 
 [sub_resource type="GDScript" id=5]
-
 script/source = "extends ItemList
 
 #Se puede borrar este script
@@ -73,336 +48,209 @@ func item_selected(index):
 "
 
 [sub_resource type="StreamTexture" id=6]
-
 flags = 4
-load_path = "res://.import/info_icon.png-1e3c34d3b4831e1b03c76ead1f33fd25.stex"
-_sections_unfolded = [ "Resource" ]
 
-[node name="World" type="Node" index="0"]
-
+[node name="World" type="Node"]
 script = ExtResource( 1 )
 
-[node name="Test Tube" type="KinematicBody2D" parent="." index="0"]
-
+[node name="Test Tube" type="KinematicBody2D" parent="."]
 pause_mode = 1
+editor/display_folded = true
 position = Vector2( 446.223, 256.609 )
 rotation = 0.00233467
 input_pickable = true
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 2 )
-_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
 text = "H2SO4"
-changedTexture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube"]
 visible = false
 position = Vector2( 1.11115, 0.136139 )
 rotation = 2.32831e-010
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="Test Tube" index="1"]
-
+[node name="Sprite" type="Sprite" parent="Test Tube"]
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
+texture = ExtResource( 3 )
 
-[node name="Area2D" type="Area2D" parent="Test Tube" index="2"]
-
+[node name="Area2D" type="Area2D" parent="Test Tube"]
 editor/display_folded = true
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Test Tube/Area2D" index="0"]
-
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Test Tube/Area2D"]
 visible = false
 position = Vector2( 1.11111, 0.136139 )
 rotation = 4.65661e-010
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Test Tube2" type="KinematicBody2D" parent="." index="1"]
-
+[node name="Test Tube2" type="KinematicBody2D" parent="."]
 pause_mode = 1
 editor/display_folded = true
 position = Vector2( 523.958, 260.462 )
 rotation = 0.00233467
 input_pickable = true
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 2 )
-_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
 text = "Fe(OH)2"
-changedTexture = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="Test Tube2" index="0"]
-
+[node name="Sprite" type="Sprite" parent="Test Tube2"]
 rotation = 4.36557e-010
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
+texture = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube2" index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Tube2"]
 visible = false
 position = Vector2( 1.11115, 0.136139 )
 rotation = 2.32831e-010
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="Test Tube2" index="2"]
-
+[node name="Area2D" type="Area2D" parent="Test Tube2"]
 editor/display_folded = true
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Test Tube2/Area2D" index="0"]
-
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Test Tube2/Area2D"]
 visible = false
 position = Vector2( 1.11111, 0.136139 )
 rotation = 4.65661e-010
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Enviroment" type="Node" parent="." index="2"]
-
+[node name="Enviroment" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="floor" type="StaticBody2D" parent="Enviroment" index="0"]
-
+[node name="floor" type="StaticBody2D" parent="Enviroment"]
 editor/display_folded = true
 position = Vector2( 493.113, 612.942 )
 scale = Vector2( 16.2813, 0.5 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor"]
 position = Vector2( 1.14285, 4 )
 scale = Vector2( 1.018, 1.6 )
 shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="table" type="Sprite" parent="Enviroment/floor" index="1"]
-
+[node name="table" type="Sprite" parent="Enviroment/floor"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.14285, 4 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Visibility" ]
+texture = ExtResource( 5 )
 
-[node name="floor4" type="StaticBody2D" parent="Enviroment" index="1"]
-
+[node name="floor4" type="StaticBody2D" parent="Enviroment"]
 editor/display_folded = true
 position = Vector2( 508.706, -17.0598 )
 scale = Vector2( 16.2813, 0.5 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="table" type="Sprite" parent="Enviroment/floor4" index="0"]
-
+[node name="table" type="Sprite" parent="Enviroment/floor4"]
 visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.14285, 4 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Visibility" ]
+texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor4" index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor4"]
 position = Vector2( 1.14285, 4 )
 scale = Vector2( 1.018, 1.6 )
 shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="floor2" type="StaticBody2D" parent="Enviroment" index="2"]
-
+[node name="floor2" type="StaticBody2D" parent="Enviroment"]
 editor/display_folded = true
 position = Vector2( 1044.8, 296.348 )
 rotation = 1.5708
 scale = Vector2( 9.63113, 0.5 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="table" type="Sprite" parent="Enviroment/floor2" index="0"]
-
+[node name="table" type="Sprite" parent="Enviroment/floor2"]
 visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.14285, 4 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Visibility" ]
+texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor2" index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor2"]
 position = Vector2( 1.14285, 4 )
 scale = Vector2( 1.018, 1.6 )
 shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="floor3" type="StaticBody2D" parent="Enviroment" index="3"]
-
+[node name="floor3" type="StaticBody2D" parent="Enviroment"]
 editor/display_folded = true
 position = Vector2( -16.9321, 292.593 )
 rotation = 1.5708
 scale = Vector2( 9.63113, 0.5 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="table" type="Sprite" parent="Enviroment/floor3" index="0"]
-
+[node name="table" type="Sprite" parent="Enviroment/floor3"]
 visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.14285, 4 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Visibility" ]
+texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor3" index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/floor3"]
 position = Vector2( 1.14285, 4 )
 scale = Vector2( 1.018, 1.6 )
 shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="table" type="StaticBody2D" parent="Enviroment" index="4"]
-
+[node name="table" type="StaticBody2D" parent="Enviroment"]
 modulate = Color( 0.945313, 0.727448, 0.727448, 1 )
 material = SubResource( 3 )
 position = Vector2( 480, 450 )
 scale = Vector2( 8, 1.1875 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="table" type="Sprite" parent="Enviroment/table" index="0"]
-
+[node name="table" type="Sprite" parent="Enviroment/table"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.14285, 4 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Visibility" ]
+texture = ExtResource( 5 )
 
-[node name="legs" type="Sprite" parent="Enviroment/table" index="1"]
-
+[node name="legs" type="Sprite" parent="Enviroment/table"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -20, 80 )
 scale = Vector2( 0.0902724, 1.5 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+texture = ExtResource( 5 )
 
-[node name="legs2" type="Sprite" parent="Enviroment/table" index="2"]
-
+[node name="legs2" type="Sprite" parent="Enviroment/table"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 20, 80 )
 scale = Vector2( 0.0902724, 1.5 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
+texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/table" index="3"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/table"]
 visible = false
 position = Vector2( 1.14285, 4 )
 scale = Vector2( 1.018, 1.6 )
 shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enviroment/table" index="4"]
-
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enviroment/table"]
 visible = false
 position = Vector2( -19.9516, 79.7887 )
 scale = Vector2( 0.125, 0.842105 )
 shape = SubResource( 4 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Enviroment/table" index="5"]
-
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Enviroment/table"]
 visible = false
 position = Vector2( 19.8799, 79.7887 )
 scale = Vector2( 0.125, 0.842105 )
 shape = SubResource( 4 )
 
-[node name="PopupDialog" type="PopupDialog" parent="." index="3"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="PopupDialog" type="PopupDialog" parent="."]
+editor/display_folded = true
 margin_right = 80.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-script = ExtResource( 7 )
-_sections_unfolded = [ "Margin" ]
+script = ExtResource( 6 )
 
-[node name="Label" type="Label" parent="PopupDialog" index="0"]
-
+[node name="Label" type="Label" parent="PopupDialog"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -411,20 +259,9 @@ margin_left = -20.0
 margin_top = -7.0
 margin_right = 20.0
 margin_bottom = 7.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." index="4"]
-
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
 editor/display_folded = true
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -433,42 +270,19 @@ margin_left = -100.0
 margin_top = -35.0
 margin_right = 100.0
 margin_bottom = 35.0
-rect_min_size = Vector2( 200, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
 window_title = "Por favor, Confirma..."
-resizable = false
-dialog_hide_on_ok = true
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
-[node name="ToolsPanel" type="Panel" parent="." index="5"]
-
+[node name="ToolsPanel" type="Panel" parent="."]
 editor/display_folded = true
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 97.0
 margin_top = 10.0
 margin_right = 937.0
 margin_bottom = 109.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-script = ExtResource( 9 )
-_sections_unfolded = [ "Margin" ]
+script = ExtResource( 8 )
 
-[node name="ItemList" type="ItemList" parent="ToolsPanel" index="0"]
-
+[node name="ItemList" type="ItemList" parent="ToolsPanel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -477,28 +291,13 @@ margin_left = -382.0
 margin_top = -30.5
 margin_right = 379.0
 margin_bottom = 29.5
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/vseparation = 30
 custom_constants/line_separation = 30
 custom_constants/hseparation = 30
-items = [  ]
-select_mode = 0
-allow_reselect = false
-icon_mode = 1
-fixed_icon_size = Vector2( 0, 0 )
 script = SubResource( 5 )
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="PopupItems" type="PopupDialog" parent="." index="6"]
-
+[node name="PopupItems" type="PopupDialog" parent="."]
 editor/display_folded = true
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -507,106 +306,41 @@ margin_left = -141.0
 margin_top = -66.0
 margin_right = 144.0
 margin_bottom = 62.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 
-[node name="Label" type="Label" parent="PopupItems" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="PopupItems"]
 margin_left = 13.0
 margin_top = 12.0
 margin_right = 270.0
 margin_bottom = 117.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="ToolsButton" type="TextureButton" parent="." index="7"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="ToolsButton" type="TextureButton" parent="."]
 margin_left = 25.0
 margin_top = 33.0
 margin_right = 65.0
 margin_bottom = 73.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 11 )
-_sections_unfolded = [ "Textures" ]
+texture_normal = ExtResource( 10 )
 
-[node name="ElementsButton" type="TextureButton" parent="." index="8"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="ElementsButton" type="TextureButton" parent="."]
 margin_left = 950.0
 margin_top = 27.0
 margin_right = 1078.0
 margin_bottom = 155.0
 rect_scale = Vector2( 0.5, 0.5 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 12 )
-_sections_unfolded = [ "Textures" ]
+texture_normal = ExtResource( 11 )
 
-[node name="PanelElements" type="Panel" parent="." index="9"]
-
+[node name="PanelElements" type="Panel" parent="."]
 editor/display_folded = true
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 96.0
 margin_top = 11.0
 margin_right = -87.0
 margin_bottom = -484.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 
-[node name="ElementsList" type="ItemList" parent="PanelElements" index="0"]
-
+[node name="ElementsList" type="ItemList" parent="PanelElements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -615,126 +349,45 @@ margin_left = -402.5
 margin_top = -34.5
 margin_right = 402.5
 margin_bottom = 34.5
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-items = [  ]
-select_mode = 0
-allow_reselect = false
-icon_mode = 1
-fixed_icon_size = Vector2( 0, 0 )
 
-[node name="PopupElements" type="PopupDialog" parent="." index="10"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="PopupElements" type="PopupDialog" parent="."]
+editor/display_folded = true
 margin_right = 233.0
 margin_bottom = 118.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-script = ExtResource( 14 )
+script = ExtResource( 13 )
 
-[node name="Label" type="Label" parent="PopupElements" index="0"]
-
+[node name="Label" type="Label" parent="PopupElements"]
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 15.0
 margin_top = 12.0
 margin_right = 205.0
 margin_bottom = 90.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="InfoButton" type="TextureButton" parent="." index="11"]
-
+[node name="InfoButton" type="TextureButton" parent="."]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 14.0
 margin_top = 540.0
 margin_right = 62.0
 margin_bottom = 588.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = SubResource( 6 )
-script = ExtResource( 15 )
-_sections_unfolded = [ "Anchor", "Margin", "Textures" ]
+script = ExtResource( 14 )
 
-[node name="PopupActivity" type="PopupDialog" parent="InfoButton" index="0"]
-
-visible = false
-anchor_left = 0.0
+[node name="PopupActivity" type="PopupDialog" parent="InfoButton"]
 anchor_top = 1.0
-anchor_right = 0.0
 anchor_bottom = 1.0
 margin_top = -354.0
 margin_right = 197.0
 margin_bottom = -65.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-script = ExtResource( 16 )
+script = ExtResource( 15 )
 
-[node name="Label" type="Label" parent="InfoButton/PopupActivity" index="0"]
-
+[node name="Label" type="Label" parent="InfoButton/PopupActivity"]
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 11.0
 margin_top = 9.0
 margin_right = 51.0
 margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="Profile" type="TextureButton" parent="." index="12"]
-
+[node name="Profile" type="TextureButton" parent="."]
 editor/display_folded = true
 anchor_left = 1.0
 anchor_top = 1.0
@@ -743,226 +396,80 @@ anchor_bottom = 1.0
 margin_left = -65.0
 margin_top = -64.0
 margin_right = -1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 6 )
-script = ExtResource( 17 )
-_sections_unfolded = [ "Anchor", "Margin", "Material" ]
+texture_normal = ExtResource( 5 )
+script = ExtResource( 16 )
 
-[node name="PopupActivity" type="PopupDialog" parent="Profile" index="0"]
-
-visible = false
-anchor_left = 0.0
+[node name="PopupActivity" type="PopupDialog" parent="Profile"]
 anchor_top = 1.0
-anchor_right = 0.0
 anchor_bottom = 1.0
 margin_top = -354.0
 margin_right = 197.0
 margin_bottom = -65.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-script = ExtResource( 16 )
+script = ExtResource( 15 )
 
-[node name="Label" type="Label" parent="Profile/PopupActivity" index="0"]
-
+[node name="Label" type="Label" parent="Profile/PopupActivity"]
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 11.0
 margin_top = 9.0
 margin_right = 51.0
 margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="ConfirmationDialog2" type="ConfirmationDialog" parent="." index="13"]
-
+[node name="ConfirmationDialog2" type="ConfirmationDialog" parent="."]
 pause_mode = 2
 editor/display_folded = true
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 303.0
 margin_top = 70.0
 margin_right = 682.0
 margin_bottom = 213.0
-rect_min_size = Vector2( 200, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 popup_exclusive = true
 window_title = "Por favor, Confirma..."
-resizable = false
-dialog_hide_on_ok = true
-script = ExtResource( 18 )
-_sections_unfolded = [ "Pause" ]
+script = ExtResource( 17 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="ConfirmationDialog2" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Panel" type="Panel" parent="ConfirmationDialog2"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 371.0
 margin_bottom = 107.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="Label2" type="Label" parent="ConfirmationDialog2/Panel" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label2" type="Label" parent="ConfirmationDialog2/Panel"]
 margin_left = 7.0
 margin_top = 20.0
 margin_right = 130.0
 margin_bottom = 34.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Cantidad de H2SO4:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Margin" ]
 
-[node name="Label3" type="Label" parent="ConfirmationDialog2/Panel" index="1"]
-
-anchor_left = 0.0
+[node name="Label3" type="Label" parent="ConfirmationDialog2/Panel"]
 anchor_top = 0.5
-anchor_right = 0.0
 anchor_bottom = 0.5
 margin_left = 7.0
 margin_top = 2.0
 margin_right = 138.0
 margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Cantidad de Fe(OH)2:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Margin" ]
 
-[node name="LineEdit" type="LineEdit" parent="ConfirmationDialog2/Panel" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="LineEdit" type="LineEdit" parent="ConfirmationDialog2/Panel"]
 margin_left = 203.0
 margin_top = 12.0
 margin_right = 261.0
 margin_bottom = 36.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
-_sections_unfolded = [ "Margin" ]
 
-[node name="LineEdit2" type="LineEdit" parent="ConfirmationDialog2/Panel" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="LineEdit2" type="LineEdit" parent="ConfirmationDialog2/Panel"]
 margin_left = 204.0
 margin_top = 49.0
 margin_right = 263.0
 margin_bottom = 73.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
-_sections_unfolded = [ "Margin" ]
 
-[node name="Label2" type="Label" parent="ConfirmationDialog2" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label2" type="Label" parent="ConfirmationDialog2"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 371.0
 margin_bottom = 107.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="PopupDialogWrongAnswer" type="PopupDialog" parent="." index="14"]
-
+[node name="PopupDialogWrongAnswer" type="PopupDialog" parent="."]
 editor/display_folded = true
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -971,18 +478,9 @@ margin_left = -179.0
 margin_top = -166.0
 margin_right = 127.0
 margin_bottom = -102.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-script = ExtResource( 19 )
+script = ExtResource( 18 )
 
-[node name="Label" type="Label" parent="PopupDialogWrongAnswer" index="0"]
-
-anchor_left = 0.0
+[node name="Label" type="Label" parent="PopupDialogWrongAnswer"]
 anchor_top = 0.5
 anchor_right = 0.04
 anchor_bottom = 0.5
@@ -990,353 +488,111 @@ margin_left = 15.0
 margin_top = -7.0
 margin_right = 27.6
 margin_bottom = 7.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="PanelElements2" type="Panel" parent="." index="15"]
-
+[node name="PanelElements2" type="Panel" parent="."]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 164.0
 margin_top = 21.0
 margin_right = 884.0
 margin_bottom = 121.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-script = ExtResource( 20 )
-_sections_unfolded = [ "Rect" ]
+script = ExtResource( 19 )
 
-[node name="Button" type="Button" parent="PanelElements2" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="PanelElements2"]
 margin_right = 180.0
 margin_bottom = 20.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Mixture"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="Button2" type="Button" parent="PanelElements2" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button2" type="Button" parent="PanelElements2"]
 margin_left = 180.0
 margin_right = 360.0
 margin_bottom = 20.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Solid"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="Button3" type="Button" parent="PanelElements2" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button3" type="Button" parent="PanelElements2"]
 margin_left = 360.0
 margin_right = 540.0
 margin_bottom = 20.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Liquid"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="Button4" type="Button" parent="PanelElements2" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button4" type="Button" parent="PanelElements2"]
 margin_left = 540.0
 margin_right = 720.0
 margin_bottom = 20.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Gas"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="ElementsList" type="ItemList" parent="PanelElements2" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="ElementsList" type="ItemList" parent="PanelElements2"]
 margin_left = 12.0
 margin_top = 27.0
 margin_right = 709.0
 margin_bottom = 92.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-items = [  ]
-select_mode = 0
-allow_reselect = false
-icon_mode = 1
-fixed_icon_size = Vector2( 0, 0 )
 
-[node name="Recipiente2" parent="." index="16" instance=ExtResource( 21 )]
-
+[node name="Recipiente2" parent="." instance=ExtResource( 20 )]
 position = Vector2( 666.296, 364.385 )
 scale = Vector2( 0.3, 0.3 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="PourSubstanceDialog" type="ConfirmationDialog" parent="." index="17"]
-
+[node name="PourSubstanceDialog" type="ConfirmationDialog" parent="."]
 pause_mode = 2
 editor/display_folded = true
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 36.0
 margin_top = 180.0
 margin_right = 409.0
 margin_bottom = 309.0
-rect_min_size = Vector2( 200, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 popup_exclusive = true
 window_title = "Por favor, Confirma..."
-resizable = false
-dialog_hide_on_ok = true
-script = ExtResource( 22 )
-_sections_unfolded = [ "Pause", "Popup" ]
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PourSubstanceDialog" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Panel" type="Panel" parent="PourSubstanceDialog"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 365.0
 margin_bottom = 93.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PourSubstanceDialog/Panel" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PourSubstanceDialog/Panel"]
 margin_right = 66.0
 margin_bottom = 46.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 
-[node name="Label" type="Label" parent="PourSubstanceDialog/Panel/VBoxContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="PourSubstanceDialog/Panel/VBoxContainer"]
 margin_top = 4.0
 margin_right = 66.0
 margin_bottom = 18.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PourSubstanceDialog/Panel/VBoxContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="HBoxContainer" type="HBoxContainer" parent="PourSubstanceDialog/Panel/VBoxContainer"]
 margin_top = 22.0
 margin_right = 66.0
 margin_bottom = 46.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 
-[node name="Label" type="Label" parent="PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer"]
 margin_top = 5.0
 margin_bottom = 19.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="LineEdit" type="LineEdit" parent="PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="LineEdit" type="LineEdit" parent="PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer"]
 margin_left = 4.0
 margin_right = 62.0
 margin_bottom = 24.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
 
-[node name="Label2" type="Label" parent="PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label2" type="Label" parent="PourSubstanceDialog/Panel/VBoxContainer/HBoxContainer"]
 margin_left = 66.0
 margin_top = 5.0
 margin_right = 66.0
 margin_bottom = 19.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="OverwhelmedRecipientePopup" type="PopupDialog" parent="." index="18"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="OverwhelmedRecipientePopup" type="PopupDialog" parent="."]
+editor/display_folded = true
 margin_left = 102.0
 margin_top = 146.0
 margin_right = 335.0
 margin_bottom = 240.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-_sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Label" type="Label" parent="OverwhelmedRecipientePopup" index="0"]
-
+[node name="Label" type="Label" parent="OverwhelmedRecipientePopup"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1345,70 +601,35 @@ margin_left = -94.0
 margin_top = -38.0
 margin_right = 94.0
 margin_bottom = 38.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+
+[node name="TrashCan" parent="." instance=ExtResource( 22 )]
+position = Vector2( 885.661, 572.764 )
 
 [connection signal="hit" from="Test Tube" to="." method="show_description"]
-
 [connection signal="input_event" from="Test Tube" to="Test Tube" method="_on_Test_Tube_input_event"]
-
 [connection signal="mouse_entered" from="Test Tube" to="Test Tube" method="mouse_entered"]
-
 [connection signal="mouse_exited" from="Test Tube" to="Test Tube" method="mouse_exited"]
-
 [connection signal="mouse_exited" from="Test Tube" to="." method="hide_description"]
-
 [connection signal="body_entered" from="Test Tube/Area2D" to="Test Tube" method="_on_Area2D_body_entered"]
-
 [connection signal="hit" from="Test Tube2" to="." method="show_description"]
-
 [connection signal="input_event" from="Test Tube2" to="Test Tube2" method="_on_Test_Tube_input_event"]
-
 [connection signal="mouse_entered" from="Test Tube2" to="Test Tube2" method="mouse_entered"]
-
-[connection signal="mouse_exited" from="Test Tube2" to="." method="hide_description"]
-
 [connection signal="mouse_exited" from="Test Tube2" to="Test Tube2" method="mouse_exited"]
-
+[connection signal="mouse_exited" from="Test Tube2" to="." method="hide_description"]
 [connection signal="body_entered" from="Test Tube2/Area2D" to="Test Tube2" method="_on_Area2D_body_entered"]
-
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
-
 [connection signal="item_selected" from="ToolsPanel/ItemList" to="." method="_on_ItemList_item_selected"]
-
 [connection signal="pressed" from="ToolsButton" to="." method="_on_ToolsButton_pressed"]
-
 [connection signal="pressed" from="ElementsButton" to="." method="_on_ElementsButton_pressed"]
-
 [connection signal="item_selected" from="PanelElements/ElementsList" to="." method="_on_ElementsList_item_selected"]
-
 [connection signal="confirmed" from="ConfirmationDialog2" to="." method="_on_ConfirmationDialog2_confirmed"]
-
 [connection signal="hide" from="ConfirmationDialog2" to="." method="_on_ConfirmationDialog2_hide"]
-
 [connection signal="pressed" from="PanelElements2/Button" to="PanelElements2" method="_on_Button_pressed"]
-
 [connection signal="pressed" from="PanelElements2/Button2" to="PanelElements2" method="_on_Button2_pressed"]
-
 [connection signal="pressed" from="PanelElements2/Button3" to="PanelElements2" method="_on_Button3_pressed"]
-
 [connection signal="pressed" from="PanelElements2/Button4" to="PanelElements2" method="_on_Button4_pressed"]
-
 [connection signal="item_selected" from="PanelElements2/ElementsList" to="." method="_on_ElementsList_item_selected"]
-
 [connection signal="hit" from="Recipiente2" to="." method="_on_Recipiente2_hit"]
-
 [connection signal="overwhelmed" from="Recipiente2" to="." method="_on_Recipiente2_overwhelmed"]
-
 [connection signal="confirmed" from="PourSubstanceDialog" to="." method="_on_PourSubstanceDialog_confirmed"]
-
 [connection signal="hide" from="PourSubstanceDialog" to="." method="_on_PourSubstanceDialog_hide"]
-
-
