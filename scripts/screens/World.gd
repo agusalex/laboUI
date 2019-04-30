@@ -108,7 +108,7 @@ func _on_ElementsList_item_selected(index):
 	#Se modificó lo de arriba por lo siguiente...
 	var s = Global_SubstanceDatabase.get_item(index+1)
 	if s != null:
-		s.position.x = 50 * (index+1)
+		s.position.x = 250 + (50 * (index+1))
 		s.position.y = 200
 		s.connect("selected", self, "_on_Substancia2_selected")
 		s.connect("mouseOver", self, "_on_Substancia2_mouseOver")
