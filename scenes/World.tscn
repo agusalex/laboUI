@@ -490,7 +490,6 @@ margin_right = 27.6
 margin_bottom = 7.0
 
 [node name="PanelElements2" type="Panel" parent="."]
-editor/display_folded = true
 margin_left = 164.0
 margin_top = 21.0
 margin_right = 884.0

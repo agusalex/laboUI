@@ -15,6 +15,11 @@ signal selected(instance)
 signal mouseOver(instance)
 var mouse_inside
 
+# Agregando movimiento
+var speed = 250
+var velocity = Vector2()
+var gravity = 8
+
 func _ready():
 	$Sprite.set_texture(texture)
 	set_process(true)
@@ -27,6 +32,9 @@ func _process(delta):
 	if mouse_inside:
 		emit_signal("mouseOver", self)
 
+func _physics_process(delta):
+	get_input()
+	move_and_collide(velocity * delta)
 
 func _on_Area2D_input_event(viewport, event, shape_idx): # No entiendo por qué _on_Substancia2_input_event no funciona pero éste sí
 	if event.is_action_pressed("left_click"):
@@ -47,7 +55,12 @@ func colorear():
 func getImage():
 	return $Sprite.texture
 
-
 func _on_Area2D_mouse_exited(): # No entiendo por qué _on_Substancia2_mouse_exited no funciona pero éste sí
 	mouse_inside = false
 	emit_signal("mouseOver", self)
+
+func get_input():
+	# Detect up/down/left/right keystate and only move when pressed
+	velocity = Vector2()
+	velocity.y = gravity
+	velocity = velocity.normalized() * speed
