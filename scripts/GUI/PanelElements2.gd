@@ -24,6 +24,8 @@ func _ready():
 #		icon = ResourceLoader.load("res://assets/elements/element" + str(i) + ".png")
 #		itemList.add_item("", icon, true)
 
+	_on_Button_pressed() # Para mostrar algo siempre.
+
 	hide()
 
 
