@@ -1,6 +1,6 @@
 extends Panel
 
-var URL = "http://laboapi.herokuapp.com/api/rest-auth/user/"
+var URL = "http://laboquimica.herokuapp.com/api/rest-auth/user/"
 var passwordMessage = "- La contraseña debe contener al menos: un numero, una letra y tener un minimo de 8 caracteres sin simbolos especiales"
 var emailMessage = "- Introduzca una direccion de email valida"
 var NameMessage = "- Introduzca un nombre valido"

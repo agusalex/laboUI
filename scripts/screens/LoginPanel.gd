@@ -1,5 +1,5 @@
 extends Panel
-var loginURL = "http://laboapi.herokuapp.com/api/rest-auth/login/"
+var loginURL = "http://laboquimica.herokuapp.com/api/rest-auth/login/"
 
 func _ready():
 	Token.flushToken()

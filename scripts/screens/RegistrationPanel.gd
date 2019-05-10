@@ -1,6 +1,6 @@
 extends Panel
 
-var registerURL = "http://laboapi.herokuapp.com/api/rest-auth/registration/"
+var registerURL = "http://laboquimica.herokuapp.com/api/rest-auth/registration/"
 var emailRegex = RegexUtils.EXPRESSION.validEmail
 var passwordRegex = RegexUtils.EXPRESSION.validPassword
 var passwordMessage = "- La contraseña debe contener al menos: un numero, una letra y tener un minimo de 8 caracteres sin simbolos especiales"
@@ -60,7 +60,7 @@ func onHTTPRegistrationRequestCompleted(result, response_code, headers, body):
 		print("user Registered!")
 		Token.setToken(JSON.parse(body.get_string_from_utf8()).result.key)
 		Game.setState(Game.State.PROFILE_FIRST_RUN)
-		get_tree().change_scene("res://Profile.tscn")
+		get_tree().change_scene("res://scenes/Profile.tscn")
 	elif(response_code==400):
 		$RegisterButton.disabled = false
 		$BackButton.disabled = false
