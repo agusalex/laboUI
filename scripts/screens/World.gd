@@ -34,15 +34,15 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-func update_tubes():
+#func update_tubes():
 	
 #	actualTube == get_node("Test Tube") ? staticTube = get_node("Test Tube2") : staticTube = get_node("Test Tube")
 	
-	if actualTube == get_node("Test Tube"):
-		staticTube = get_node("Test Tube2")
-	else:
-		staticTube = get_node("Test Tube")
-		actualTube = get_node("Test Tube2")
+#	if actualTube == get_node("Test Tube"):
+#		staticTube = get_node("Test Tube2")
+#	else:
+#		staticTube = get_node("Test Tube")
+#		actualTube = get_node("Test Tube2")
 	
 
 func show_description():
@@ -147,13 +147,13 @@ func _on_ConfirmationDialog2_confirmed():
 	
 	
 
-func _on_ConfirmationDialog2_hide():
-	get_tree().paused = false
+#func _on_ConfirmationDialog2_hide():
+#	get_tree().paused = false
 #	$"Test Tube".interaction = false
 #	$"Test Tube2".interaction = false
-	$"Test Tube".reset(446, 256)
-	$"Test Tube2".reset(523, 260)
-	actualTube.rotate(1.5708)
+#	$"Test Tube".reset(446, 256)
+#	$"Test Tube2".reset(523, 260)
+#	actualTube.rotate(1.5708)
 
 
 func _on_Substancia2_selected(instance):
