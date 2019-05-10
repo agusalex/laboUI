@@ -245,6 +245,7 @@ margin_right = 270.0
 margin_bottom = 117.0
 
 [node name="ToolsButton" type="TextureButton" parent="."]
+visible = false
 margin_left = 25.0
 margin_top = 33.0
 margin_right = 65.0
@@ -252,10 +253,10 @@ margin_bottom = 73.0
 texture_normal = ExtResource( 7 )
 
 [node name="ElementsButton" type="TextureButton" parent="."]
-margin_left = 950.0
-margin_top = 27.0
-margin_right = 1078.0
-margin_bottom = 155.0
+margin_left = 964.32
+margin_top = 2.65649
+margin_right = 1092.32
+margin_bottom = 130.656
 rect_scale = Vector2( 0.5, 0.5 )
 texture_normal = ExtResource( 8 )
 
@@ -323,9 +324,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -65.0
-margin_top = -64.0
-margin_right = -1.0
+margin_left = -1018.69
+margin_top = -596.694
+margin_right = -954.694
+margin_bottom = -532.694
 texture_normal = ExtResource( 2 )
 script = ExtResource( 13 )
 
@@ -456,7 +458,7 @@ margin_right = 709.0
 margin_bottom = 92.0
 
 [node name="Recipiente2" parent="." instance=ExtResource( 17 )]
-position = Vector2( 666.296, 364.385 )
+position = Vector2( 665.296, 385.385 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="PourSubstanceDialog" type="ConfirmationDialog" parent="."]
@@ -532,7 +534,7 @@ margin_right = 94.0
 margin_bottom = 38.0
 
 [node name="TrashCan" parent="." instance=ExtResource( 19 )]
-position = Vector2( 885.661, 572.764 )
+position = Vector2( 115.869, 573.733 )
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
 [connection signal="item_selected" from="ToolsPanel/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="ToolsButton" to="." method="_on_ToolsButton_pressed"]
